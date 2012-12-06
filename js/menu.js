@@ -5,7 +5,9 @@ function menuMouseEnter()
 	if(!inMenu)
 	{
 		inMenu = true;
-		$('div.menu').animate({width:'10%'});
+		$('div.menu').animate({width:'10%'}, complete=function(){
+			$(this).css('min-width', '100px');
+		});
 	}
 }
 
@@ -18,6 +20,7 @@ function menuMouseExit()
 	if(mousepos > windowWidth/10)
 	{
 		$('div.menu').animate({width:'3%'});
+		$('div.menu').css('min-width', '0');
 		console.log("exit!");
 		inMenu = false;
 	}

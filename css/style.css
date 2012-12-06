@@ -18,8 +18,10 @@ body
 
 div.menu
 {
-	background-color: grey;
+	background-image: url('../images/menubackground.png');
+	background-position: right bottom;
 	width: 3%;
+	min-width: 40px;
 	position: absolute;
 	height: 100%;
 	color: black;
