@@ -6,7 +6,7 @@
  *	Desc:	open connection to our Database.
  */
 ?>
-<script type="text/javascript" src="./js/jquery-1.8.3.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript" src="./js/menu.js"></script>
 
 <div class="menu" id="menu" onmouseover="menuMouseEnter();" onmouseout="menuMouseExit();">
