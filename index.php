@@ -1,11 +1,14 @@
 <html>
 <head>
 	<title>LEGO</title>
-	<link rel="stylesheet" type="text/css" href="style.css" />
-	<script type="text/javascript" src="script.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/style.css" />
+	<script type="text/javascript" src="./js/script.js"></script>
 	<?php
-	mysql_connect("localhost","root","");
-	mysql_select_db("Lego");
+	//Change this to false to use School database
+	$DEBUG = true;
+	//Start connection to SQL-Servers
+	require("./config/sqlconfig.php");
+
 	// Från formuläret, om man trycker på "submit"-knappen, kommer
 	// variablen $POST["setnr"] som innehåller texten i fältet "setnr".
 	if(!$_POST == "")
@@ -16,7 +19,7 @@
 </head>
 <body>
 	<?php
-		require("templates\menu.php");
+		require("./templates/menu.php");
 	?>
 
 	<div class="search" id="search">
@@ -123,6 +126,5 @@
 }
 ?>
 	</div>
-<script type="text/javascript" src="js/menuhover.js"></script>
 </body>
 </html>

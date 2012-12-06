@@ -1,18 +1,32 @@
+/**
+ * 		Grupp 18 - 2012-11-27
+ * 	Name:	Daniel Rönnkvist
+ *	file: 	style.css
+ *	Desc:	Hold style of the whole website
+ */
+
 body
 {
 	margin: 0px 0px;
 	font-family: Verdana;
 }
+/**
+ *
+ * 		Divisions
+ *
+ */
+
 div.menu
 {
 	background-color: grey;
-	width: 13%;
-	float: left;
+	width: 3%;
+	position: absolute;
 	height: 100%;
 	color: black;
 }
 div.search
 {
+	margin-left: 3%;;
 	background-color: #D4D4D4;
 	width: 87%;
 	height: 25%;
@@ -20,6 +34,7 @@ div.search
 }
 div.list
 {
+	margin-left: 3%;
 	float:left;
 	width: 29%;
 	height: 75%;
@@ -28,6 +43,7 @@ div.list
 }
 div.selected
 {
+
 	float: left;
 	width: 29%;
 	height: 75%;
@@ -41,10 +57,21 @@ div.is
 	background-color: #F2F2F2;
 	overflow: auto;
 }
+
+/**
+ *
+ * 		Images
+ *
+ */
+
 img.select
 {
 	margin-top: 10%;
 	width: 50%;
+}
+img.menu
+{
+	width: 3%;;
 }
 ul
 {
@@ -52,24 +79,45 @@ ul
 	margin-left: 5%;
 	font-size: 20px;
 }
+
+/**
+ *
+ * 		Tables
+ *
+ */
+
 table, th, td
 {
 	border-collapse: collapse;
 	text-align: center;
 }
+
+td.menu
+{
+	text-align: left;
+}
+
+/**
+ * 		Inputs
+ */
+
 input
 {
 	margin-top: 1%;
 	margin-left: 1%;
 }
+
+/**
+ * 		Paragraphs
+ */
 p
 {
 	font-size: 14px;
 }
-td.menu
-{
-	text-align: left;
-}
+
+/**
+ * 		links
+ */
 a
 {
 	color: black;

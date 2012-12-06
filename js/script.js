@@ -8,7 +8,7 @@ function menuFold()
 		document.getElementById("search").style.width="96%";
 		document.getElementById("list").style.width="32%";
 		document.getElementById("selected").style.width="32%";
-		document.getElementById("is").style.width="32%";	
+		document.getElementById("is").style.width="32%";
 	}
 	else
 	{
@@ -17,7 +17,7 @@ function menuFold()
 		document.getElementById("search").style.width="87%";
 		document.getElementById("list").style.width="29%";
 		document.getElementById("selected").style.width="29%";
-		document.getElementById("is").style.width="29%";	
+		document.getElementById("is").style.width="29%";
 	}
 }
 function searchFold()
@@ -28,7 +28,7 @@ function searchFold()
 		document.getElementById("search").style.height="5%";
 		document.getElementById("list").style.height="95%";
 		document.getElementById("selected").style.height="95%";
-		document.getElementById("is").style.height="95%";	
+		document.getElementById("is").style.height="95%";
 	}
 	else
 	{
@@ -36,7 +36,7 @@ function searchFold()
 		document.getElementById("search").style.height="25%";
 		document.getElementById("list").style.height="75%";
 		document.getElementById("selected").style.height="75%";
-		document.getElementById("is").style.height="75%";	
+		document.getElementById("is").style.height="75%";
 	}
 }
 function isEven(value)
@@ -48,7 +48,7 @@ function isEven(value)
 }
 function searchHold()
 {
-	if (document.getElementById("search").style.height == "25%") 
+	if (document.getElementById("search").style.height == "25%")
 	{
 		document.getElementById("search").style.height="25%";
 		document.getElementById("list").style.height="75%";
