@@ -12,12 +12,11 @@ Använd denna kodsnippet i toppen av varje fil!
 
 	<?php
 		/**
-		 * 		Grupp 18 - åååå-mm-dd
-		 * 	Name:	your name
-		 *	file: 	filename
-		 *	Desc:	desription
-		 *
+		 * 		Grupp 18 - 2012-11-27
+		 * 	Name:	Erik Larsson
+		 *	file: 	sqlconfig.php
+		 *	Desc:	open connection to our Database.
 		 */
 	?>
-Om filen inte är html eller php så kan ni ta bort <?/?> taggarna
+
 ### Alla kommentarer skall skrivas på engelska (snälla?)

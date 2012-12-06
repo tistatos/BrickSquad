@@ -2,12 +2,10 @@
 <head>
 	<title>LEGO</title>
 	<link rel="stylesheet" type="text/css" href="./css/style.css" />
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/script.js"></script>
 	<?php
-
 	//Change this to false to use School database
 	$DEBUG = true;
-
 	//Start connection to SQL-Servers
 	require("./config/sqlconfig.php");
 
@@ -15,7 +13,7 @@
 	// variablen $POST["setnr"] som innehåller texten i fältet "setnr".
 	if(!$_POST == "")
 	{
-		$setnr = $_POST["setnr"];
+	$setnr = $_POST["setnr"];
 	}
 	?>
 </head>
@@ -37,32 +35,32 @@
 	if(!$_POST == "")
 	{
 		$contents = mysql_query("SELECT SetID, Setname FROM sets WHERE SetID LIKE '$setnr-%'");
-		if(mysql_num_rows($contents) == 0)
-		{
-			print("Inga satser funna!");
-		}
-		else
-		{
-			print("<table border=1>\n<tr>");
-			for($i=0; $i<mysql_num_fields($contents); $i++)
-			{
-				$fieldname = mysql_field_name($contents, $i);
-				print("<th>$fieldname</th>");
-			}
-			print "</tr>\n";
+	   if(mysql_num_rows($contents) == 0)
+	   {
+	      print("Inga satser funna!");
+	   }
+	   else
+	   {
+	      print("<table border=1>\n<tr>");
+	      for($i=0; $i<mysql_num_fields($contents); $i++)
+	      {
+	         $fieldname = mysql_field_name($contents, $i);
+	         print("<th>$fieldname</th>");
+	      }
+	      print "</tr>\n";
 
-			while($row = mysql_fetch_row($contents))
-			{
-				print("<tr>");
-				for($i=0; $i<mysql_num_fields($contents); $i++)
-				{
-					print("<td>$row[$i]</td>");
-				}
-				print("</tr>\n");
-			}
-			print("</table>\n");
-		}
-	}
+	      while($row = mysql_fetch_row($contents))
+	      {
+	         print("<tr>");
+	         for($i=0; $i<mysql_num_fields($contents); $i++)
+	         {
+	            print("<td>$row[$i]</td>");
+	         }
+	         print("</tr>\n");
+	      }
+	      print("</table>\n");
+	   }
+	  }
 	?>
 </p>
 	</div>
