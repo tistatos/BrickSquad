@@ -1,9 +1,12 @@
 <?php
-/* 		Grupp 18 - 2012-11-27
-	Name:	Erik Larsson
-	file: 	sqlconfig.php
-	Desc:	open connection to our Database.
-*/
+/**
+ * 		Grupp 18 - 2012-11-27
+ * 	Name:	Erik Larsson
+ *	file: 	sqlconfig.php
+ *	Desc:	open connection to our Database.
+ *
+ */
+
 
 $server;
 
