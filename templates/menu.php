@@ -1,9 +1,9 @@
 <?
 /**
- * 		Grupp 18 - 2012-11-27
+ * 		Grupp 18 - 2012-12-06
  * 	Name:	Erik Larsson
- *	file: 	sqlconfig.php
- *	Desc:	open connection to our Database.
+ *	file: 	menu.php
+ *	Desc:	Hold layout for menu
  */
 ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
