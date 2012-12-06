@@ -1,0 +1,76 @@
+body
+{
+	margin: 0px 0px;
+	font-family: Verdana;
+}
+div.menu
+{
+	background-color: grey;
+	width: 13%;
+	float: left;
+	height: 100%;
+	color: black;
+}
+div.search
+{
+	background-color: #D4D4D4;
+	width: 87%;
+	height: 25%;
+	float: left;
+}
+div.list
+{
+	float:left;
+	width: 29%;
+	height: 75%;
+	background-color: #EBEBEB;
+	overflow: auto;
+}
+div.selected
+{
+	float: left;
+	width: 29%;
+	height: 75%;
+	background-color: #EFEFEF;
+}
+div.is
+{
+	float: left;
+	width: 29%;
+	height: 75%;
+	background-color: #F2F2F2;
+	overflow: auto;
+}
+img.select
+{
+	margin-top: 10%;
+	width: 50%;
+}
+ul
+{
+	margin-top: 5%;
+	margin-left: 5%;
+	font-size: 20px;
+}
+table, th, td
+{
+	border-collapse: collapse;
+	text-align: center;
+}
+input
+{
+	margin-top: 1%;
+	margin-left: 1%;
+}
+p
+{
+	font-size: 14px;
+}
+td.menu
+{
+	text-align: left;
+}
+a
+{
+	color: black;
+}
