@@ -5,6 +5,7 @@
  *	Desc:	Generic javascripts for bricksquad
  */
 
+/* Old code
 var count = 2;
 function menuFold()
 {
@@ -70,3 +71,4 @@ function searchHold()
 		document.getElementById("is").style.height="95%";
 	}
 }
+*/

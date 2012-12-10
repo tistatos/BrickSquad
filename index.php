@@ -53,7 +53,6 @@
 	</div>
 
 	<div class="selected" id="selected">
-		<center>
 		<?php
 		if(!$_POST == "")
 		{
@@ -61,8 +60,9 @@
 		print("<img class='select' src=$site>");
 		}
 		?>
-		</br>
-		<table border="0">
+		<br />
+
+		<table class="info">
 		<tr>
 		<td>Lite info</td>
 		<td>lite mer info</td>
@@ -71,7 +71,7 @@
 		<td>INFORMATION</td>
 		<td>LEGO IS FUN</td>
 		</tr>
-		</table></center>
+		</table>
 	</div>
 
 	<div class="is" id="is">
@@ -91,7 +91,7 @@
    }
    else
    {
-      print("<table border=1>\n<tr>");
+      print('<table border="1">\n<tr>');
       for($i=0; $i<mysql_num_fields($contents); $i++)
       {
          $fieldname = mysql_field_name($contents, $i);

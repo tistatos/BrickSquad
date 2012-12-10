@@ -1,7 +1,7 @@
 <?
 /**
  * 		Grupp 18 - 2012-12-06
- * 	Name:	Erik Larsson
+ * 	id:	Erik Larsson
  *	file: 	menu.php
  *	Desc:	Hold layout for menu
  */
@@ -11,18 +11,18 @@
 <script type="text/javascript" src="./js/menu.js"></script>
 
 <div class="menu" id="menu" onmouseover="menuMouseEnter();" onmouseout="menuMouseExit();">
-	<table border="0">
+	<table>
 	<tr>
-	<td class="menu"><img class='menu' src="./images/home.jpg" name="menuItem"></td>
+	<td class="menu"><img class='menuItem' src="./images/home.jpg" alt="menuitem"></td>
 	</tr>
 	<tr>
-	<td class="menu"><img class='menu' src="./images/search.jpg" name="menuItem"></td>
+	<td class="menu"><img class='menuItem' src="./images/search.jpg" alt="menuitem"></td>
 	</tr>
 	<tr>
-	<td class="menu"><img class='menu' src="./images/about.jpg" name="menuItem"></td>
+	<td class="menu"><img class='menuItem' src="./images/about.jpg" alt="menuitem"></td>
 	</tr>
 	<tr>
-	<td class="menu"><img class='menu' src="./images/contact.jpg" name="menuItem"></td>
+	<td class="menu"><img class='menuItem' src="./images/contact.jpg" alt="menuitem"></td>
 	</tr>
 	</table>
 </div>

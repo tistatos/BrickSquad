@@ -2,12 +2,13 @@
  * 		Grupp 18 - 2012-11-27
  * 	Name:	Daniel Rönnkvist
  *	file: 	style.css
- *	Desc:	Hold style of the whole website
+ *	Desc:	hold generic layout of website
  */
 
 body
 {
 	margin: 0px 0px;
+	height: 100%;
 	font-family: Verdana;
 }
 
@@ -20,17 +21,18 @@ div.menu
 {
 	background-image: url('../images/menubackground.png');
 	background-position: right bottom;
-	width: 3%;
+	width: 120px;
 	min-width: 40px;
 	position: absolute;
 	height: 100%;
 	color: black;
+	overflow: hidden;
 }
 div.search
 {
 	margin-left: 3%;;
 	background-color: #D4D4D4;
-	width: 87%;
+	width: 90%;
 	height: 25%;
 	float: left;
 }
@@ -38,8 +40,8 @@ div.list
 {
 	margin-left: 3%;
 	float:left;
-	width: 29%;
-	height: 75%;
+	width: 30%;
+	height: 100%;
 	background-color: #EBEBEB;
 	overflow: auto;
 }
@@ -47,14 +49,14 @@ div.selected
 {
 
 	float: left;
-	width: 29%;
+	width: 30%;
 	height: 75%;
 	background-color: #EFEFEF;
 }
 div.is
 {
 	float: left;
-	width: 29%;
+	width: 30%;
 	height: 75%;
 	background-color: #F2F2F2;
 	overflow: auto;
