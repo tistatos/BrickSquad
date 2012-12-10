@@ -1,4 +1,4 @@
-?php
+<?php
 	/**
 	 * 		Grupp 18 - 2012-12-10
 	 * 	Name:	Daniel Rönnkvist

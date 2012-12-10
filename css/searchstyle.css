@@ -37,8 +37,9 @@ div.menu
 }
 div.search
 {
+	margin-left: 40px;
 	background-color: #DEDEDE;
-	width: 87%;
+	width: 93%;
 	height: 25%;
 	float: left;
 	font-size: 23px;
@@ -46,8 +47,9 @@ div.search
 }
 div.list
 {
+	margin-left: 40px;
 	float:left;
-	width: 29%;
+	width: 33%;
 	height: 75%;
 	background-color: #F3F3F3;
 	overflow: auto;
@@ -55,14 +57,14 @@ div.list
 div.selected
 {
 	float: left;
-	width: 29%;
+	width: 33%;
 	height: 75%;
 	background-color: #E8E8E8;
 }
 div.is
 {
 	float: left;
-	width: 29%;
+	width: 31%;
 	height: 75%;
 	background-color: #D6D6D6;
 	overflow: auto;
