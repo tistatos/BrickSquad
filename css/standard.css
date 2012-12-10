@@ -1,4 +1,4 @@
-/***
+/**
  * 		Grupp 18 - 2012-12-10
  * 	Name:	Daniel Rönnkvist
  *	file: 	homestyle.css
@@ -136,7 +136,7 @@ p.tagline
 /**
  *		Images
  */
-img
+img.menu
 {
 	width: 40px;
 }
