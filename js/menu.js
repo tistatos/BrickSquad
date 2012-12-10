@@ -17,7 +17,7 @@ function menuMouseEnter()
 	{
 		console.log("enter");
 		inMenu = true;
-		$('div.menu').animate({width:'120px'});
+		$('div.menu').animate({width:'140px'});
 	}
 }
 
@@ -37,7 +37,7 @@ function menuMouseExit()
 	if(mousepos >= 120)
 	{
 		console.log("exit");
-		$('div.menu').animate({width:'3%'});
+		$('div.menu').animate({width:'40px'});
 		inMenu = false;
 	}
 }

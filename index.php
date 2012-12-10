@@ -9,12 +9,13 @@
 	require("./templates/header.php");
 ?>
 
-	<div class="search" id="search">
-		<center><h1>BRICKSQUAD</h1></center>
+	<div class="title" id="title">
+		<h1>BRICKSQUAD</h1>
+		<p class='tagline'>F&ouml;r oss som gillar Lego mer &auml;n stegu!</p>
 	</div>
 
 	<div class="list" id="list">
-		
+
 	</div>
 
 	<div class="selected" id="selected">

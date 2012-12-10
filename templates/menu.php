@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * 		Grupp 18 - 2012-12-06
  * 	Name:	Erik Larsson
@@ -7,22 +7,19 @@
  */
 ?>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script type="text/javascript" src="./js/menu.js"></script>
-
 <div class="menu" id="menu" onmouseover="menuMouseEnter();" onmouseout="menuMouseExit();">
 	<table border="0">
-	<tr>
-	<td class="menu"><img class='menu' src="./images/home.png" name="menuItem" onclick="location.href='index.php'"></td>
-	</tr>
-	<tr>
-	<td class="menu"><img class='menu' src="./images/search.png" name="menuItem" onclick="location.href='search.php'"></td>
-	</tr>
-	<tr>
-	<td class="menu"><img class='menu' src="./images/about.png" name="menuItem" onclick="location.href='about.php'"></td>
-	</tr>
-	<tr>
-	<td class="menu"><img class='menu' src="./images/contact.png" name="menuItem" onclick="location.href='contact.php'"></td>
-	</tr>
+		<tr>
+			<td class="menu" onclick="location.href='index.php'"><img class='menu' src="./images/home.png">Home</td>
+		</tr>
+		<tr>
+			<td class="menu" onclick="location.href='search.php'"><img class='menu' src="./images/search.png">Search</td>
+		</tr>
+		<tr>
+			<td class="menu" onclick="location.href='about.php'"><img class='menu' src="./images/about.png">About</td>
+		</tr>
+		<tr>
+			<td class="menu" onclick="location.href='contact.php'" ><img class='menu' src="./images/contact.png">Contact</td>
+		</tr>
 	</table>
 </div>
