@@ -15,7 +15,6 @@ function menuMouseEnter()
 {
 	if(!inMenu)
 	{
-		console.log("enter");
 		inMenu = true;
 		$('div.menu').animate({width:'140px'});
 	}
@@ -33,10 +32,8 @@ function menuMouseExit()
 	var windowWidth = document.body.clientWidth;
 
 	//mouse is outside menu
-	console.log(mousepos);
 	if(mousepos >= 120)
 	{
-		console.log("exit");
 		$('div.menu').animate({width:'40px'});
 		inMenu = false;
 	}

@@ -12,8 +12,8 @@ body
 	cursor: default;
 }
 
-/* 
- *		The color of marked objects 
+/*
+ *		The color of marked objects
  */
 ::selection
 {
@@ -21,16 +21,17 @@ body
 	color:#fff;
 }
 
-/* 
- *		CSS for the DIVS 
+/*
+ *		CSS for the DIVS
  */
 div.menu
 {
-	background-image:url('../Images/menyBG.png');
+	background-image:url('../images/menyBG.png');
 	background-position: left;
 	background-size: 100% 100%;
-	width: 3%;
-	float: left;
+	width: 140;
+	position: absolute;
+	overflow: hidden;
 	height: 100%;
 	color: #4A4A4A;
 }
@@ -67,13 +68,13 @@ div.is
 	overflow: auto;
 }
 
-/* 
- *		Table CSS 
+/*
+ *		Table CSS
  */
 td.menu, td.selected
 {
-	font-size: 40px;
-	text-indent: 10px;
+	font-size: 25px;
+	text-indent: 0px;
 	color: #929292;
 	line-height: 160%;
 }

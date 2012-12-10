@@ -14,8 +14,10 @@
 			<title>Bricksquad - F&ouml;r oss som gillar Lego mer &auml;n stegu!</title>
 			<link rel="stylesheet" type="text/css" href="./css/searchstyle.css" />
 			<script type="text/javascript" src="./js/script.js"></script>
-			<link rel="icon" type="image/png" href="http://example.com/myicon.png">
-
+			<script type="text/javascript" src="./js/menu.js"></script>
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+			<script type="text/javascript" src="./js/menu.js"></script>
+			<link rel="shortcut icon" href="./images/favicon.ico">
 			<?php
 			//Change this to false to use School database
 			$DEBUG = true;
