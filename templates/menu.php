@@ -6,22 +6,23 @@
  *	Desc:	Hold layout for menu
  */
 ?>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript" src="./js/menu.js"></script>
 
 <div class="menu" id="menu" onmouseover="menuMouseEnter();" onmouseout="menuMouseExit();">
 	<table border="0">
 	<tr>
-	<td class="menu">Home</td>
+	<td class="menu"><img class='menu' src="./images/home.jpg" name="menuItem"></td>
 	</tr>
 	<tr>
-	<td class="menu">Search</td>
+	<td class="menu"><img class='menu' src="./images/search.jpg" name="menuItem"></td>
 	</tr>
 	<tr>
-	<td class="menu">Contact</td>
+	<td class="menu"><img class='menu' src="./images/about.jpg" name="menuItem"></td>
 	</tr>
 	<tr>
-	<td class="menu">About</td>
+	<td class="menu"><img class='menu' src="./images/contact.jpg" name="menuItem"></td>
 	</tr>
 	</table>
 </div>

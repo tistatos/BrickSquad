@@ -7,8 +7,7 @@
  *
  */
 
-
-$server;
+$server = "";
 
 if($DEBUG)
 {

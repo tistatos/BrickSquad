@@ -13,7 +13,7 @@
 	// variablen $POST["setnr"] som innehåller texten i fältet "setnr".
 	if(!$_POST == "")
 	{
-	$setnr = $_POST["setnr"];
+		$setnr = $_POST["setnr"];
 	}
 	?>
 </head>
