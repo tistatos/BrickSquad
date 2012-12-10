@@ -19,5 +19,8 @@ else
 }
 
 //connect to server and select lego database;
-mysql_connect($server, "lego","");
-mysql_select_db("lego");
+$connection = mysql_connect($server, "lego","");
+if($connection)
+{
+	mysql_select_db("lego");
+}

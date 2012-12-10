@@ -1,26 +1,13 @@
-<html>
-<head>
-	<title>LEGO</title>
-	<link rel="stylesheet" type="text/css" href="./css/style.css" />
-	<script type="text/javascript" src="./js/script.js"></script>
-	<?php
-	//Change this to false to use School database
-	$DEBUG = true;
-	//Start connection to SQL-Servers
-	require("./config/sqlconfig.php");
+<?php
+	/**
+	 * 		Grupp 18 - 2012-12-10
+	 * 	Name:	Erik Larsson
+	 *	file: 	Index.php
+	 *	Desc:	home/index of website
+	 */
 
-	// Från formuläret, om man trycker på "submit"-knappen, kommer
-	// variablen $POST["setnr"] som innehåller texten i fältet "setnr".
-	if(!$_POST == "")
-	{
-		$setnr = $_POST["setnr"];
-	}
-	?>
-</head>
-<body>
-	<?php
-		require("./templates/menu.php");
-	?>
+	require("./templates/header.php");
+?>
 
 	<div class="search" id="search">
 		<form action="layout.php" method=POST name="form">
