@@ -274,12 +274,6 @@
 					 
 					   
 					print("<td>$color_row[0]</td>");
-					}
-					
-					
-					
-					
-					
 					
 					
 				
@@ -288,7 +282,10 @@
 				print("<td>$row[$i]</td>");
 				}
 			
-			
+				SELECT inventory.SetID, inventory.Quantity, minifigs.MinifigID, minifigs.minifigname
+				FROM inventory
+				JOIN minifigs ON inventory.ItemID= minifigs.MinifigID
+				WHERE inventory.SetID= '1712-1'
 	
 			
          }
