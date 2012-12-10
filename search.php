@@ -6,13 +6,20 @@
 	 *	Desc:	searchpage
 	 */
 
-	require("./templates/header.php");
+	require("./templates/search-header.php");
 ?>
 
 	<div class="search" id="search">
 		<form action="search.php" method=POST name="form">
-			Set ID:<input type="text" size="40" name="setnr" />
-			<input type=submit value="Submit" />
+			Search for:<input type="text" size="40" name="setnr" />
+			<input type="image" src="images/search.png" class="submit" onsubmit="submit-form();" /><br/>
+			<p class="adv">Advanced Search</p>
+
+			<div class="opt">Year:<input type="text" size="40" name="setnr" />
+							Color:<input type="text" size="40" name="setnr" /></div>
+
+			<div class="opt2">Category:<input type="text" size="40" name="setnr" />
+							Tags:<input type="text" size="40" name="setnr" /></div>
 		</form>
 	</div>
 

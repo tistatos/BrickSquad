@@ -29,7 +29,7 @@ div.menu
 	background-image:url('../images/menyBG.png');
 	background-position: left;
 	background-size: 100% 100%;
-	width: 10%;
+	width: 120px;
 	float: left;
 	height: 100%;
 	color: #4A4A4A;
@@ -117,7 +117,8 @@ p
 /*
  *		Images
  */
-img
+img.menu
 {
 	width: 40px;
+	margin: 10px 0px;
 }

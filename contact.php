@@ -40,7 +40,9 @@
 			CALL ME MAYBE!
 			<br/>
 			<br/>
-			<a href="callto:0763967424">0763-96 74 24</a>
+			<a href="callto:0763967424">0763-96 74 24</a><br/><br/>
+			<a href="callto:0735052056">0735-05 20 56</a><br/><br/>
+			<a href="callto:0760298037">0760-29 80 37</a>
 		</p>
 	</div>
 </body>

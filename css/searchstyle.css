@@ -12,14 +12,18 @@ body
 	cursor: default;
 }
 
-/* The color of marked objects */
+/* 
+ *		The color of marked objects 
+ */
 ::selection
 {
 	background:#cc0000;
 	color:#fff;
 }
 
-/* CSS for the building blocks */
+/* 
+ *		CSS for the DIVS 
+ */
 div.menu
 {
 	background-image:url('../Images/menyBG.png');
@@ -36,7 +40,7 @@ div.search
 	width: 87%;
 	height: 25%;
 	float: left;
-	font-size: 60px;
+	font-size: 23px;
 	color: #4A4A4A;
 }
 div.list
@@ -63,7 +67,9 @@ div.is
 	overflow: auto;
 }
 
-/* Table CSS */
+/* 
+ *		Table CSS 
+ */
 td.menu, td.selected
 {
 	font-size: 40px;
@@ -85,4 +91,60 @@ table
 	width: 100%;
 	border-color: #929292;
 	outline-width: 0px;
+}
+
+/*
+ *		links
+ */
+a
+{
+	color: black;
+	text-decoration: none;
+}
+a:hover
+{
+	color:#4A4A4A;
+}
+
+/*
+ *		Images
+ */
+img.menu
+{
+	width: 40px;
+	margin: 10px 0px;
+}
+input.submit
+{
+	width: 23px;
+}
+
+/*
+ *		Form
+ */
+form
+{
+	margin: 10px;
+}
+
+/*
+ *		Paragraphs
+ */
+p.adv
+{
+	font-size: 17px;
+}
+div.opt
+{
+	width: 400px;
+	margin-right: 50%;
+	text-align: right;
+	float: left;
+}
+div.opt2
+{
+	width: 400px;
+	margin-right: 50%;
+	text-align: right;
+	float: left;
 }
