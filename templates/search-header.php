@@ -20,9 +20,17 @@
 			<link rel="shortcut icon" href="./images/favicon.ico">
 			<?php
 			//Change this to false to use School database
-			$DEBUG = true;
+			$DEBUG = false;
+
 			//Start connection to SQL-Servers
 			require("./config/sqlconfig.php");
+
+			require("Fetch_image.php");
+			if(sizeof($_GET) != 0)
+			{
+				$setnr = $_GET['setnr'];
+				$setnr_specific = $_GET["setnr_specific"];
+			}
 			?>
 	</head>
 <body>
