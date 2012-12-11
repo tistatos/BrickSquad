@@ -17,13 +17,6 @@
 			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript" src="./js/menu.js"></script>
 			<link rel="shortcut icon" href="./images/favicon.ico">
-
-			<?php
-			//Change this to false to use School database
-			$DEBUG = true;
-			//Start connection to SQL-Servers
-			require("./config/sqlconfig.php");
-			?>
 	</head>
 <body>
 	<?php
