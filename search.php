@@ -23,8 +23,8 @@
 			<input type=submit value="Submit" />
 		</form>
 	</div>
-
-<!--	Advanced search to be implemented
+	
+<!--	Advanced search to be implemented 
 	<div class="search" id="search">
 		<form action="search.php" method=POST name="form">
 			Search for:<input type="text" size="40" name="setnr" />
@@ -48,9 +48,7 @@
 			//Query Database for any set - FIXME make specific and common the same!
 			$contents = mysql_query("SELECT * FROM sets WHERE SetID LIKE '$setnr-%'");
 			CreateTable($contents);
-			
 			$setnr_specific = $setnr."-1"; //////////////FULKODDDNING!!!!!!!!!!!!!!!!!!!!
-			
 		}
 		//Specific search for sets
 		else if(sizeof($_GET) != 0 && $_GET['setnr_specific'] != "")
@@ -74,7 +72,6 @@
 		//Get Picture FIXME
 		if(sizeof($_GET) != 0)
 		{
-
 			if($setnr != "")
 			{
 				$site = "http://www.bricklink.com/SL/" . $setnr ."-1.jpg" ; // visar alltid första i setordningen
@@ -92,8 +89,6 @@
 				$site = "http://img.bricklink.com/P/4/". $part_id . ".gif"; // bild för delar
 				echo("<img class='select' src=$site>");
 			}
-			
-				
 		}
 		?>
 		<br />
@@ -153,7 +148,7 @@
 						//FIXME Improve
 						//Query part name and potential minifig ID
 						$partIdQuery = mysql_query("SELECT PartID From parts WHERE Partname ='" . $partName ."'");
-						
+						$miniFigIdQuery = mysql_query("SELECT MinifigID FROM minifigs where Minifigname = '". $partName ."'");
 
 						$partRow = mysql_fetch_row($partIdQuery);
 
@@ -167,24 +162,27 @@
 						$image_Query = mysql_query("SELECT filepath FROM `images` WHERE filepath= 'P/". $color_row[0]. "/".$partRow[0].".gif' AND isthere=TRUE");
 						$imageRow = mysql_fetch_row($image_Query);
 
-						
+						$minifigRow = mysql_fetch_row($miniFigIdQuery);
 
 						if($imageRow != null)
 						{
 							$imglink = "http://img.bricklink.com/" . $imageRow[0];
 							echo("<td><img src='$imglink' alt='gif-image' /></td>");
-				
 						}
 						else
 						{
 							validate_image($partRow[0], $color_row[0]);
 						}
-	
+						if($minifigRow != null)
+						{
+							echo($partName);
+							$imglink_minifig = "http://img.bricklink.com/M/ ". $minifigRow[0].".gif";
+							echo("<td><img src='$imglink_minifig' alt='gif-image' /></td>");
+						}
 					}
 					else
 					{
-						echo("<td>$row[$i]</td>");
-						
+						echo("<td>$row[$i]</td>");		
 					}
 					
 					
@@ -231,9 +229,12 @@
 		$partTable_row = mysql_fetch_row($part_query);
 		
 		echo("<td>$partTable_row[0]</td>");
-		
-		
-		
+					}
+				}
+				echo("</tr>\n");
+   			}
+	   		echo("</table>\n");
+		}
 	}
 
 /* Search query for minifigs
