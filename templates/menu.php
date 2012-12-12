@@ -38,5 +38,7 @@ menuAutoClose();
 			</td>
 		</tr>
 	</table>
+
+<img src='./images/uc.gif' width=760>
 </div>
 </center>
