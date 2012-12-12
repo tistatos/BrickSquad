@@ -18,6 +18,9 @@
 			<br />
 			Specific Set ID:<input type="text" size="40" name="setnr_specific" />
 			<input type=submit value="Submit" />
+			<br />
+			Part ID:<input type="text" size="40" name="part_id" />
+			<input type=submit value="Submit" />
 		</form>
 	</div>
 
@@ -45,11 +48,21 @@
 			//Query Database for any set - FIXME make specific and common the same!
 			$contents = mysql_query("SELECT * FROM sets WHERE SetID LIKE '$setnr-%'");
 			CreateTable($contents);
+			
+			$setnr_specific = $setnr."-1"; //////////////FULKODDDNING!!!!!!!!!!!!!!!!!!!!
+			
 		}
 		//Specific search for sets
 		else if(sizeof($_GET) != 0 && $_GET['setnr_specific'] != "")
 		{
-			$contents = mysql_query("SELECT * FROM sets WHERE 1 AND SetID ='" . $setnr_specific ."'");
+			$contents = mysql_query("SELECT * FROM sets WHERE SetID ='" . $setnr_specific ."'");
+			CreateTable($contents);
+		}
+		
+		//Search for part
+		else if(sizeof($_GET) != 0 && $_GET['part_id'] != "")
+		{
+			$contents = mysql_query("SELECT * FROM parts WHERE PartID ='" . $part_id . "'");
 			CreateTable($contents);
 		}
 		?>
@@ -61,17 +74,26 @@
 		//Get Picture FIXME
 		if(sizeof($_GET) != 0)
 		{
+
 			if($setnr != "")
 			{
 				$site = "http://www.bricklink.com/SL/" . $setnr ."-1.jpg" ; // visar alltid första i setordningen
 				echo("<img class='select' src=$site>");
 				echo("<br /> <p>Satsnummer: $setnr-1</p> ");
 			}
-			else
+			else if($setnr_specific != "" )
 			{
 				$site = "http://www.bricklink.com/SL/" . $setnr_specific .".jpg OR .png OR .gif" ; // bild för setnumber specifik
 				echo("<img class='select' src=$site>");
 			}
+			else if ($part_id != "")
+			{
+				
+				$site = "http://img.bricklink.com/P/4/". $part_id . ".gif"; // bild för delar
+				echo("<img class='select' src=$site>");
+			}
+			
+				
 		}
 		?>
 		<br />
@@ -131,7 +153,7 @@
 						//FIXME Improve
 						//Query part name and potential minifig ID
 						$partIdQuery = mysql_query("SELECT PartID From parts WHERE Partname ='" . $partName ."'");
-						$miniFigIdQuery = mysql_query("SELECT MinifigID FROM minifigs where Minifigname = '". $partName ."'");
+						
 
 						$partRow = mysql_fetch_row($partIdQuery);
 
@@ -145,34 +167,73 @@
 						$image_Query = mysql_query("SELECT filepath FROM `images` WHERE filepath= 'P/". $color_row[0]. "/".$partRow[0].".gif' AND isthere=TRUE");
 						$imageRow = mysql_fetch_row($image_Query);
 
-						$minifigRow = mysql_fetch_row($miniFigIdQuery);
+						
 
 						if($imageRow != null)
 						{
 							$imglink = "http://img.bricklink.com/" . $imageRow[0];
 							echo("<td><img src='$imglink' alt='gif-image' /></td>");
-							//error_reporting(0);
+				
 						}
 						else
 						{
 							validate_image($partRow[0], $color_row[0]);
 						}
-						if($minifigRow != null)
-						{
-							echo($partName);
-							$imglink_minifig = "http://img.bricklink.com/M/ ". $minifigRow[0].".gif";
-							echo("<td><img src='$imglink_minifig' alt='gif-image' /></td>");
-						}
+	
 					}
 					else
 					{
 						echo("<td>$row[$i]</td>");
+						
 					}
+					
+					
+			
 				}
 				echo("</tr>\n");
    			}
+			
+			
+			
+			//Search query for minifigs
+			$table_query = mysql_query("SELECT minifigs.MinifigID,inventory.Quantity, inventory.SetID, minifigs.Minifigname
+											FROM inventory
+											JOIN minifigs ON inventory.ItemID= minifigs.MinifigID
+											WHERE inventory.SetID= '$setnr-%' OR inventory.SetID ='" . $setnr_specific ."'");
+										
+			
+			//echo($table_query[$i]);
+
+			if(mysql_num_rows($table_query) == 0)
+			{
+				echo("Ingen detaljerad information funnen!");
+			}
+			else
+			{
+				echo("<th> MinifigID </th><th> Qty </th><th> SetID </th><th> Name</th><th> Image </th>");
+			}
+			while($miniFigTableRow = mysql_fetch_row($table_query))
+			{
+			echo("<tr>");
+				for($n=0; $n<mysql_num_fields($table_query); $n++)
+				{
+					echo("<td> $miniFigTableRow[$n] </td>");
+				}
+				$imglink_minifig = "http://img.bricklink.com/M/".$miniFigTableRow[0].".gif"  ;
+				echo("<td><img src='$imglink_minifig' alt='gif-image' /></td>");					
+				echo("</tr>");
+			}
 	   		echo("</table>\n");
 		}
+		//Part search
+		
+		$part_query = mysql_query("SELECT PartID, Partname FROM `parts` WHERE PartID = 'part_id' ");
+		$partTable_row = mysql_fetch_row($part_query);
+		
+		echo("<td>$partTable_row[0]</td>");
+		
+		
+		
 	}
 
 /* Search query for minifigs
