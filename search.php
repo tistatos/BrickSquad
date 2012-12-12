@@ -184,12 +184,11 @@
 					{
 						echo("<td>$row[$i]</td>");		
 					}
-					
-					
-			
 				}
 				echo("</tr>\n");
-   			}
+			}
+			echo("</table>\n");
+		}
 			
 			
 			
@@ -208,11 +207,12 @@
 			}
 			else
 			{
+				echo("<table border=1>\n");
 				echo("<th> MinifigID </th><th> Qty </th><th> SetID </th><th> Name</th><th> Image </th>");
 			}
 			while($miniFigTableRow = mysql_fetch_row($table_query))
 			{
-			echo("<tr>");
+				echo("<tr>");
 				for($n=0; $n<mysql_num_fields($table_query); $n++)
 				{
 					echo("<td> $miniFigTableRow[$n] </td>");
@@ -222,20 +222,16 @@
 				echo("</tr>");
 			}
 	   		echo("</table>\n");
-		}
+	}
+		/*
 		//Part search
-		
 		$part_query = mysql_query("SELECT PartID, Partname FROM `parts` WHERE PartID = 'part_id' ");
 		$partTable_row = mysql_fetch_row($part_query);
 		
-		echo("<td>$partTable_row[0]</td>");
+				echo("<td>$partTable_row[0]</td>");
 					}
 				}
-				echo("</tr>\n");
-   			}
-	   		echo("</table>\n");
-		}
-	}
+		*/
 
 /* Search query for minifigs
 SELECT inventory.SetID, inventory.Quantity, minifigs.MinifigID, minifigs.minifigname
