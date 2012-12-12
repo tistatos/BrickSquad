@@ -21,7 +21,6 @@
 		</form>
 	</div>
 
-<!--	Advanced search to be implemented
 	<div class="search" id="search">
 		<form action="search.php" method=POST name="form">
 			Search for:<input type="text" size="40" name="setnr" />
@@ -35,7 +34,6 @@
 							Tags:<input type="text" size="40" name="setnr" /></div>
 		</form>
 	</div>
--->
 	<div class="list" id="list">
 		<p>
 		<?php

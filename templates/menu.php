@@ -7,19 +7,36 @@
  */
 ?>
 
-<div class="menu" id="menu" onmouseover="menuMouseEnter();" onmouseout="menuMouseExit();">
-	<table border="0">
+<script type="text/javascript">
+<!--  id="menu" onmouseover="menuMouseEnter();" onmouseout="menuMouseExit();"
+menuAutoClose();
+-->
+</script>
+<center>
+<div class="menu">
+	<table class="menuTable">
 		<tr>
-			<td class="menu" onclick="location.href='index.php'"><img class='menu' src="./images/home.png">Home</td>
-		</tr>
-		<tr>
-			<td class="menu" onclick="location.href='search.php'"><img class='menu' src="./images/search.png">Search</td>
-		</tr>
-		<tr>
-			<td class="menu" onclick="location.href='about.php'"><img class='menu' src="./images/about.png">About</td>
-		</tr>
-		<tr>
-			<td class="menu" onclick="location.href='contact.php'" ><img class='menu' src="./images/contact.png">Contact</td>
+			<td class="menu" onclick="location.href='index.php'">
+				<div class='menuItem'>
+					<img class='menu' src="./images/home_trans.png">Home
+				</div>
+			</td>
+			<td class="menu" onclick="location.href='search.php'">
+				<div class='menuItem'>
+					<img class='menu' src="./images/search_trans.png">Search
+				</div>
+			</td>
+			<td class="menu" onclick="location.href='about.php'">
+				<div class='menuItem'>
+					<img class='menu' src="./images/about_trans.png"> About
+				</div>
+			</td>
+			<td class="menu" onclick="location.href='contact.php'" >
+				<div class='menuItem'>
+					<img class='menu' src="./images/contact_trans.png"> Contact
+				</div>
+			</td>
 		</tr>
 	</table>
 </div>
+</center>

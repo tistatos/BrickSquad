@@ -38,3 +38,16 @@ function menuMouseExit()
 		inMenu = false;
 	}
 }
+
+/**
+ * Close menu after 500ms when a new page has been loaded
+ */
+function menuAutoClose()
+{
+	setTimeout(function(){
+	if(!inMenu)
+	{
+		//$('div.menu').animate({width:'40px'});
+	}
+	},500);
+}

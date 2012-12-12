@@ -9,8 +9,10 @@
 	require("./templates/header.php");
 ?>
 
-	<div class="search" id="search">
-		<center><h1>ABOUT</h1></center>
+	<div class="title" id="title">
+		<h1 class="titleHeader">About</h1>
+		<h1 class="titleSub">Bricksquad</h1>
+		<p class='tagline'>F&ouml;r oss som gillar Lego mer &auml;n stegu!</p>
 	</div>
 
 	<div class="list" id="list">
