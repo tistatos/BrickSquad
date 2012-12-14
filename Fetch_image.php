@@ -2,7 +2,7 @@
 <?php
 
 			function validate_image($Part, $Color){
-			$site = "http://www.bricklink.com/";
+			$site = "http://img.bricklink.com/";
 			$gif_url = $site . "P/" . $Color .  "/" . $Part . ".gif";
 			$jpg_url = $site . "P/" . $Color .  "/" . $Part . ".jpg";
 						
@@ -23,4 +23,23 @@
 					print("<td> .PNG fil </td>"); 
 				}
 			}
+
+?>
+
+<?php
+/*function validate()
+{
+	var form = document.getElementById("form");
+	var  = form.setnr.value;
+	var  = form.setnr_specific.value;
+	var  = form.part_id.value;
+	
+	if( setnr_specific == "" && setnr == "" && part_id == "")
+	{
+		alert("fill in searchboxes");
+		return false;
+	}
+	
+	return true;
+}*/
 ?>

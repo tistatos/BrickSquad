@@ -48,7 +48,7 @@
 			//Query Database for any set - FIXME make specific and common the same!
 			$contents = mysql_query("SELECT * FROM sets WHERE SetID LIKE '$setnr-%'");
 			CreateTable($contents);
-			$setnr_specific = $setnr."-1"; //////////////FULKODDDNING!!!!!!!!!!!!!!!!!!!!
+			$setnr_specific = $setnr."-1";      //////////////FULKODDDNING!!!!!!!!!!!!!!!!!!!! anger setnr_specific ett värde så att minifigurerna visas
 		}
 		//Specific search for sets
 		else if(sizeof($_GET) != 0 && $_GET['setnr_specific'] != "")
@@ -70,6 +70,7 @@
 	<div class="selected" id="selected">
 		<?php
 		//Get Picture FIXME
+	
 		if(sizeof($_GET) != 0)
 		{
 			if($setnr != "")
@@ -83,11 +84,46 @@
 				$site = "http://www.bricklink.com/SL/" . $setnr_specific .".jpg OR .png OR .gif" ; // bild för setnumber specifik
 				echo("<img class='select' src=$site>");
 			}
-			else if ($part_id != "")
-			{
+			else if ($part_id != "")                   //fixme! 
+			{	
 				
-				$site = "http://img.bricklink.com/P/4/". $part_id . ".gif"; // bild för delar
-				echo("<img class='select' src=$site>");
+				$colorIdQuery = mysql_query("	SELECT DISTINCT colors.ColorID, colors.Colorname FROM inventory                    
+													JOIN colors ON inventory.ColorID = colors.ColorID
+													JOIN parts ON inventory.ItemID = parts.PartID
+													WHERE PartID = '". $part_id ."' ORDER BY ColorID");
+													
+													
+				
+													
+				echo("<table border=1>");
+				
+				$alt_image = validate_image($part_id, $color_row[0]);
+				
+				$filePathQuery = mysql_query(" SELECT filepath, isthere FROM `images` WHERE filepath LIKE 'P/$color_row[0]/%' ");
+				
+				while ($color_row = mysql_fetch_row($colorIdQuery)){
+					
+				$path_check ="P/" . $color_row[0] . "/" . $part_id . ".gif";
+				
+						
+							if($path_check == $filePathQuery)   //fixme!! fixa validering om inte bilden finns i DB
+							{
+							$site = "http://img.bricklink.com/P/" . $color_row[0] . "/" . $part_id . ".gif"; 
+								echo("<tr><td><img class='select' src=$site alt='no-image' /></td>");
+								
+							}
+							else
+							{
+								validate_image($part_id, $color_row[0]);
+							}
+							echo("<td>$color_row[1]</td></tr>");
+							
+						
+						
+					
+					
+				}
+				echo("</table > ");
 			}
 		}
 		?>
@@ -233,12 +269,7 @@
 				}
 		*/
 
-/* Search query for minifigs
-SELECT inventory.SetID, inventory.Quantity, minifigs.MinifigID, minifigs.minifigname
-FROM inventory
-JOIN minifigs ON inventory.ItemID= minifigs.MinifigID
-WHERE inventory.SetID= '1712-1'
-*/
+
 
 ?>
 	</div>
