@@ -31,9 +31,9 @@
 			{
 				$setnr = $_GET['setnr'];
 				$setnr_specific = $_GET["setnr_specific"];
+				$part_id = $_GET["part_id"];
 			}
 			?>
-			
 	</head>
 <body>
 	<?php
