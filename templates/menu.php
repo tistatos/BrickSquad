@@ -39,6 +39,6 @@ menuAutoClose();
 		</tr>
 	</table>
 
-<img src='./images/uc.gif' width=760>
+<!-- <img src='./images/uc.gif' width=760> -->
 </div>
 </center>

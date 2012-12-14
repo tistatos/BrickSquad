@@ -1,9 +1,9 @@
 /**
- * 		Grupp 18 - 2012-12-06
- * 	Name:	Erik Larsson
- *	file: 	menu.js
- *	Desc:	javascript controlling menu expanding
- */
+*	Grupp 18 - 2012-12-06
+* 	Name:	Erik Larsson
+*  	file: 	menu.js
+*  Desc:	javascript controlling menu expanding
+*/
 
 //are mouse pointer within menu borders
 var inMenu = false;
