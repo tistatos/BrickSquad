@@ -116,9 +116,29 @@ img.menu
 {
 	width: 40px;
 }
-input.submit
+
+
+
+/*
+ *		Search field stuffs
+ */
+
+/*
+ *		spans!
+ */
+span.left
 {
-	width: 23px;
+	width: 400px;
+	margin-left: 0.5%;
+	text-align: right;
+	float: left;
+}
+span.right
+{
+	width: 400px;
+	margin-right: 54%;
+	text-align: right;
+	float: right;
 }
 
 /*
@@ -136,17 +156,32 @@ p.adv
 {
 	font-size: 17px;
 }
-div.opt
+
+/*
+ *		Inputs
+ */
+input.main-search
 {
-	width: 400px;
-	margin-right: 50%;
-	text-align: right;
-	float: left;
+	width: 296px;
+	height: 29px;
 }
-div.opt2
+input.main-searchfield
 {
-	width: 400px;
-	margin-right: 54%;
-	text-align: right;
-	float: right;
+	margin-right: -8px;
+	height: 21px;
+	outline: none;
+}
+input
+{
+	border: none;
+}
+input.submit
+{
+	width: 23px;
+	padding-top: 8px;
+	position: absolute;
+}
+input.pil
+{
+	width: 15px;
 }

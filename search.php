@@ -20,22 +20,37 @@
 			<input type=submit value="Submit" />
 		</form>
 	</div>
-	
-<!--	Advanced search to be implemented 
+
+<!--	Advanced search to be implemented
 	<div class="search" id="search">
 		<form action="search.php" method=POST name="form">
-			Search for:<input type="text" size="40" name="setnr" />
-			<input type="image" src="images/search.png" class="submit" onsubmit="submit-form();" /><br/>
-			<p class="adv">Advanced Search</p>
+			<span id="main-search">
+				<label for="main-searchfield">Search for:</label>
+				<input type="text" size="40" name="setnr" class="main-searchfield" id="main-searchfield" />
+				<input type="image" src="images/search-glas.png" class="submit" onsubmit="submit-form();" /><br/>
+			</span>
+			<p class="adv">
+				Advanced Search
+				<input type="image" src="images/pil.png" class="pil">
+			</p>
+			<div id="advanced-search">
+				<span class='left'>
+					<label for="year">Year:</label>
+					<input type='text' size='40' name='year' id='year' />
+					<label for="color">Color:</label>
+					<input type='text' size='40' name='color' id='color' />
+				</span>
 
-			<div class="opt">Year:<input type="text" size="40" name="setnr" />
-							Color:<input type="text" size="40" name="setnr" /></div>
-
-			<div class="opt2">Category:<input type="text" size="40" name="setnr" />
-							Tags:<input type="text" size="40" name="setnr" /></div>
+				<span class='right'>
+					<label for="category">Category:</label>
+					<input type='text' size='40' name='category' id='category' />
+					<label for="tags">Tags:</label>
+					<input type='text' size='40' name='tags' id='tags' />
+				</span>
+			</div>
 		</form>
 	</div>
-	-->
+-->	
 
 	<div class="list" id="list">
 		<p>
@@ -176,14 +191,14 @@
 		}
 	}
 
-/* Search query for minifigs
-SELECT inventory.SetID, inventory.Quantity, minifigs.MinifigID, minifigs.minifigname
-FROM inventory
-JOIN minifigs ON inventory.ItemID= minifigs.MinifigID
-WHERE inventory.SetID= '1712-1'
-*/
+	/* Search query for minifigs
+	SELECT inventory.SetID, inventory.Quantity, minifigs.MinifigID, minifigs.minifigname
+	FROM inventory
+	JOIN minifigs ON inventory.ItemID= minifigs.MinifigID
+	WHERE inventory.SetID= '1712-1'
+	*/
 
-?>
+	?>
 	</div>
 </body>
 </html>
