@@ -12,6 +12,7 @@ body
 	cursor: default;
 	background-color: #E6E6E6;
 	min-width: 600px;
+	color: #D3D3D3	;
 }
 
 /**
@@ -53,7 +54,7 @@ div.menu
 }
 .title
 {
-	background-color: #D3D3D3;
+	background-color: #0E53A7;
 	width: 100%;
 	height: 25%;
 }
@@ -61,24 +62,25 @@ div.menu
 {
 	float:left;
 	width: 40%;
-	height: 150%;
+	height: 200%;
 	overflow: hidden;
-	background-color: #D6D6D6;
+	background-color: #4284D3;
 }
 .selected
 {
+	text-align: center;
 	float: left;
 	width: 60%;
 	height: 75%;
-	background-color: #D6D6D6;
+	background-color: #2560FA;
 }
 .is
 {
 	margin-left: 40%;
 	width: 60%;
-	height: 75%;
-	background-color: #D6D6D6;
-	overflow: auto;
+	height: 125%;
+	background-color: #2560FA;
+	overflow: hidden;
 }
 
 /**
@@ -97,11 +99,39 @@ td.menu:hover
 {
 	color: #4A4A4A;
 }
-table.menuTable
+table
+{
+	border-collapse:collapse;
+}
+.menuTable
 {
 	height: 40px;
 }
 
+.info
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+.partlist
+{
+	table-layout: fixed;
+	width: 90%;
+}
+tr.header
+{
+	background-color: #FF9C00;
+	color: #0E53A7;
+}
+tr.parts:nth-child(even)
+{
+	background: #0E53A7;
+}
+
+tr.parts:nth-child(odd)
+{
+	background-color:  #6899D3;
+}
 /**
  *		links
  */
@@ -125,6 +155,7 @@ p
 
 .tagline
 {
+	color: #FF9C00;
 	text-align: center;
 	font-size: 15px;
 	font-style: italic;
@@ -133,6 +164,10 @@ p
 .menuText
 {
 	overflow: hiden;
+}
+.pages
+{
+	text-align: center;
 }
 /**
  *		Images
@@ -148,11 +183,13 @@ img.menu
 h1.titleHeader
 {
 	text-align: center;
+	color: #FF9C00;
 	font-size: 50px;
 	margin-bottom: 1px;
 }
 .titleSub
 {
+	color: #FF9C00;
 	text-align: center;
 	font-size: 10px;
 }
