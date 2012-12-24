@@ -24,7 +24,6 @@
 		</form>
 	</div>
 
-<!--	Advanced search to be implemented
 	<div class="search" id="search">
 		<form action="search.php" method=POST name="form">
 			<span id="main-search">
@@ -53,7 +52,6 @@
 			</div>
 		</form>
 	</div>
--->	
 
 	<div class="list" id="list">
 		<p>

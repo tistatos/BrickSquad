@@ -1,9 +1,11 @@
 /**
- * 		Grupp 18 - 2012-12-06
- * 	Name:	Erik Larsson
- *	file: 	menu.js
- *	Desc:	javascript controlling menu expanding
- */
+*	Grupp 18 - 2012-12-06
+* 	Name:	Erik Larsson
+*  	file: 	menu.js
+*  Desc:	javascript controlling menu expanding
+*
+*  !!!NO Longer implemented with new layout!!!
+*/
 
 //are mouse pointer within menu borders
 var inMenu = false;
@@ -37,4 +39,17 @@ function menuMouseExit()
 		$('div.menu').animate({width:'40px'});
 		inMenu = false;
 	}
+}
+
+/**
+ * Close menu after 500ms when a new page has been loaded
+ */
+function menuAutoClose()
+{
+	setTimeout(function(){
+	if(!inMenu)
+	{
+		//$('div.menu').animate({width:'40px'});
+	}
+	},500);
 }
