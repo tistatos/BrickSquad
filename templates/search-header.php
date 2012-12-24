@@ -18,7 +18,7 @@
 			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 			<script type="text/javascript" src="./js/menu.js"></script>
 			<link rel="shortcut icon" href="./images/favicon.ico">
-			
+
 			<?php
 			//Change this to false to use School database
 			$DEBUG = false;
@@ -26,13 +26,16 @@
 			//Start connection to SQL-Servers
 			require("./config/sqlconfig.php");
 
-			require("Fetch_image.php");
+			require("./includes/Fetch_image.php");
 			if(sizeof($_GET) != 0)
 			{
 				$setnr = $_GET['setnr'];
 				$setnr_specific = $_GET["setnr_specific"];
 				$part_id = $_GET["part_id"];
 			}
+
+			//Includes function for handling SQL result layout
+			require("./includes/sqlFunctions.php");
 			?>
 	</head>
 <body>

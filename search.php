@@ -7,9 +7,13 @@
 	 */
 
 	require("./templates/search-header.php");
-	//Includes function for handling SQL result layout
-	require("./includes/sqlFunctions.php");
 ?>
+
+	<div class="title">
+		<h1 class="titleHeader">ABOUT</h1>
+		<h1 class="titleSub">Bricksquad</h1>
+		<p class='tagline'>F&ouml;r oss som gillar Lego mer &auml;n stegu!</p>
+	</div>
 
 	<div class="search" id="search">
 		<form action="search.php" method=GET name="form">
@@ -70,7 +74,7 @@
 			$contents = mysql_query("SELECT * FROM sets WHERE SetID ='" . $setnr_specific ."'");
 			CreateTable($contents);
 		}
-		
+
 		//Search for part
 		else if(sizeof($_GET) != 0 && $_GET['part_id'] != "")
 		{
@@ -84,7 +88,7 @@
 	<div class="selected" id="selected">
 		<?php
 		//Get Picture FIXME
-	
+
 		if(sizeof($_GET) != 0)
 		{
 			if($setnr != "")
@@ -98,44 +102,44 @@
 				$site = "http://www.bricklink.com/SL/" . $setnr_specific .".jpg OR .png OR .gif" ; // bild för setnumber specifik
 				echo("<img class='select' src=$site>");
 			}
-			else if ($part_id != "")                   //fixme! 
-			{	
-				
-				$colorIdQuery = mysql_query("	SELECT DISTINCT colors.ColorID, colors.Colorname FROM inventory                    
+			else if ($part_id != "")                   //fixme!
+			{
+
+				$colorIdQuery = mysql_query("	SELECT DISTINCT colors.ColorID, colors.Colorname FROM inventory
 													JOIN colors ON inventory.ColorID = colors.ColorID
 													JOIN parts ON inventory.ItemID = parts.PartID
 													WHERE PartID = '". $part_id ."' ORDER BY ColorID");
-													
-													
-				
-													
+
+
+
+
 				echo("<table border=1>");
-				
+
 				$alt_image = validate_image($part_id, $color_row[0]);
-				
+
 				$filePathQuery = mysql_query(" SELECT filepath, isthere FROM `images` WHERE filepath LIKE 'P/$color_row[0]/%' ");
-				
+
 				while ($color_row = mysql_fetch_row($colorIdQuery)){
-					
+
 				$path_check ="P/" . $color_row[0] . "/" . $part_id . ".gif";
-				
-						
+
+
 							if($path_check == $filePathQuery)   //fixme!! fixa validering om inte bilden finns i DB
 							{
-							$site = "http://img.bricklink.com/P/" . $color_row[0] . "/" . $part_id . ".gif"; 
+							$site = "http://img.bricklink.com/P/" . $color_row[0] . "/" . $part_id . ".gif";
 								echo("<tr><td><img class='select' src=$site alt='no-image' /></td>");
-								
+
 							}
 							else
 							{
 								validate_image($part_id, $color_row[0]);
 							}
 							echo("<td>$color_row[1]</td></tr>");
-							
-						
-						
-					
-					
+
+
+
+
+
 				}
 				echo("</table > ");
 			}
@@ -232,23 +236,23 @@
 					}
 					else
 					{
-						echo("<td>$row[$i]</td>");		
+						echo("<td>$row[$i]</td>");
 					}
 				}
 				echo("</tr>\n");
 			}
 			echo("</table>\n");
 		}
-			
-			
-			
+
+
+
 			//Search query for minifigs
 			$table_query = mysql_query("SELECT minifigs.MinifigID,inventory.Quantity, inventory.SetID, minifigs.Minifigname
 											FROM inventory
 											JOIN minifigs ON inventory.ItemID= minifigs.MinifigID
 											WHERE inventory.SetID= '$setnr-%' OR inventory.SetID ='" . $setnr_specific ."'");
-										
-			
+
+
 			//echo($table_query[$i]);
 
 			if(mysql_num_rows($table_query) == 0)
@@ -268,7 +272,7 @@
 					echo("<td> $miniFigTableRow[$n] </td>");
 				}
 				$imglink_minifig = "http://img.bricklink.com/M/".$miniFigTableRow[0].".gif"  ;
-				echo("<td><img src='$imglink_minifig' alt='gif-image' /></td>");					
+				echo("<td><img src='$imglink_minifig' alt='gif-image' /></td>");
 				echo("</tr>");
 			}
 	   		echo("</table>\n");
@@ -277,7 +281,7 @@
 		//Part search
 		$part_query = mysql_query("SELECT PartID, Partname FROM `parts` WHERE PartID = 'part_id' ");
 		$partTable_row = mysql_fetch_row($part_query);
-		
+
 				echo("<td>$partTable_row[0]</td>");
 					}
 				}
@@ -286,8 +290,8 @@
 
 
 ?>
-	</div>
-</body>
-</html>
+</div>
 
-
+<?php
+	require("./templates/footer.php");
+?>

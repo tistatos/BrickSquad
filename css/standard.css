@@ -7,12 +7,13 @@
 
 body
 {
-	margin: 0px 0px;
+	margin: 4% 10%;
 	font-family: Verdana;
+	font-size: 15px;
 	cursor: default;
-	background-color: #FFFFFF;
+	background-color: #E7E8FE;
 	min-width: 600px;
-	color: #D3D3D3	;
+	color: #FF9C00;
 }
 
 /**
@@ -27,24 +28,34 @@ body
 /**
  *		CSS for the DIVS
  */
+div
+{
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	min-width: 600px;
+	background-color: #E9E9E9;
+}
 div.menu
 {
 	position: fixed;
-	left: 10%;
+	left: 19.95%;
 	top: 0%;
+
+	border: 1px solid black;
 
 	background-image:url('../images/menyBG.png');
 	background-size: 100% 100%;
 
-	width: 80%;
+	width: 59.95%;
 	height: 8%;
-	min-width: 600px;
 	min-height: 50px;
 }
-.menuItem
+div.menuItem
 {
 	width:145px;
 	height: 40px;
+	min-width: 0px;
 	overflow: hidden;
 	color: #929292;
 }
@@ -54,34 +65,58 @@ div.menu
 }
 .title
 {
-	background-color: #4284D3;
-	width: 100%;
-	height: 25%;
-}
-.list
-{
-	float:left;
-	width: 40%;
-	height: 200%;
-	overflow: hidden;
-	background-color: #4284D3;
+	width: 75%;
+	border: 1px solid black;
 }
 .selected
 {
 	text-align: center;
-	float: left;
-	width: 60%;
-	height: 75%;
-	background-color: #4284D3;
+	margin-top: 10px;
+	width: 75%;
+	height: 79%;
+	border: 1px solid black;
+	margin-top: 0px;
+
 }
-.is
+.head
 {
-	margin-left: 40%;
-	width: 60%;
-	height: 125%;
-	background-color: #4284D3;
-	overflow: hidden;
+	background-image:url('../images/divhead.png');
+	background-repeat: no-repeat;
+	width: 200px;
+	color: #FF9C00;
+	background-color: #E7E8FE;
+	text-indent: 20px;
+	text-align: left;
+	margin-top: -15px;
+	margin-left: 13%;
+	margin-bottom: -23px;
 }
+div.partlist
+{
+	border: 1px solid black;
+	width: 75%;
+	height: 700px;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+}
+.contactMember
+{
+	min-width: 0px;
+	padding: 1px;
+	float: left;
+}
+
+.footnote
+{
+	text-align: center;
+	font-size: 11px;
+	margin-top: 30px;
+	width: 75%;
+	border: 1px solid black;
+
+}
+
 
 /**
  *		Table CSS
@@ -125,11 +160,13 @@ tr.header
 }
 tr.parts:nth-child(even)
 {
+	color: #D3D3D3;
 	background: #0E53A7;
 }
 
 tr.parts:nth-child(odd)
 {
+	color: #D3D3D3;
 	background-color:  #6899D3;
 }
 /**
@@ -155,19 +192,26 @@ p
 
 .tagline
 {
+	padding-right: 10px;
 	color: #FF9C00;
-	text-align: center;
-	font-size: 15px;
+	font-size: 12px;
 	font-style: italic;
 	font-weight: bold;
+	text-align: right;
+
 }
 .menuText
 {
-	overflow: hiden;
+	overflow: hidden;
 }
 .pages
 {
 	text-align: center;
+}
+p.partlist
+{
+	margin-left: auto;
+	margin-right: auto;
 }
 /**
  *		Images

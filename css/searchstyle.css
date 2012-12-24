@@ -7,10 +7,12 @@
 
 body
 {
-	margin: 0px 0px;
+	margin: 4% 10%;
 	font-family: Verdana;
 	cursor: default;
-	background-color: #D6D6D6
+	background-color: #FFFFFF;
+	min-width: 600px;
+	color: #D3D3D3	;
 }
 
 /*
@@ -27,47 +29,61 @@ body
  */
 div.menu
 {
+	position: fixed;
+	left: 10%;
+	top: 0%;
+
 	background-image:url('../images/menyBG.png');
-	background-position: left;
 	background-size: 100% 100%;
-	width: 140;
-	position: absolute;
+
+	width: 80%;
+	height: 8%;
+	min-width: 600px;
+	min-height: 50px;
+}
+.menuItem
+{
+	width:145px;
+	height: 40px;
 	overflow: hidden;
-	height: 100%;
+	color: #929292;
+}
+.menuItem:hover
+{
 	color: #4A4A4A;
 }
-div.search
+.search
 {
-	background-color: #DEDEDE;
+	background-color: #4284D3;
 	width: 100%;
 	height: 25%;
 	float: left;
 	font-size: 23px;
 	color: #4A4A4A;
 }
-div.list
+.list
 {
-	margin-left: 40px;
 	float:left;
-	width: 32%;
-	height: 75%;
-	background-color: #F3F3F3;
-	overflow: auto;
+	width: 40%;
+	height: 200%;
+	overflow: hidden;
+	background-color: #4284D3;
 }
-div.selected
+.selected
 {
+	text-align: center;
 	float: left;
-	width: 32%;
+	width: 60%;
 	height: 75%;
-	background-color: #E8E8E8;
+	background-color: #4284D3;;
 }
-div.is
+.is
 {
-	float: left;
-	width: 32%;
-	height: 75%;
-	background-color: #D6D6D6;
-	overflow: auto;
+	margin-left: 40%;
+	width: 60%;
+	height: 125%;
+	background-color: #4284D3;
+	overflow: hidden;
 }
 
 /*
@@ -76,8 +92,6 @@ div.is
 td.menu, td.selected
 {
 	font-size: 25px;
-	text-indent: 0px;
-	color: #929292;
 	line-height: 160%;
 }
 td.selected
@@ -88,13 +102,40 @@ td.menu:hover
 {
 	color: #4A4A4A;
 }
+
 table
 {
 	border-collapse: collapse;
-	width: 100%;
-	border-color: #929292;
-	outline-width: 0px;
 }
+.menuTable
+{
+	height: 40px;
+}
+.info
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+.partlist
+{
+	table-layout: fixed;
+	width: 90%;
+}
+tr.header
+{
+	background-color: #FF9C00;
+	color: #0E53A7;
+}
+tr.parts:nth-child(even)
+{
+	background: #0E53A7;
+}
+
+tr.parts:nth-child(odd)
+{
+	background-color:  #6899D3;
+}
+
 
 /*
  *		links
@@ -149,14 +190,21 @@ form
 	margin: 10px 50px;
 }
 
-/*
+/**
  *		Paragraphs
  */
-p.adv
+p
+{
+	margin-left: 15px;
+}
+.adv
 {
 	font-size: 17px;
 }
-
+.pages
+{
+	text-align: center;
+}
 /*
  *		Inputs
  */
@@ -171,17 +219,22 @@ input.main-searchfield
 	height: 21px;
 	outline: none;
 }
+.menuText
+{
+	overflow: hiden;
+}
+
 input
 {
 	border: none;
 }
-input.submit
+.submit
 {
 	width: 23px;
 	padding-top: 8px;
 	position: absolute;
 }
-input.pil
+.pil
 {
 	width: 15px;
 }

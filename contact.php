@@ -9,41 +9,41 @@
 	require("./templates/header.php");
 ?>
 
-	<div class="search" id="search">
-		<center><h1>CONTACT</h1></center>
+	<div class="title">
+		<h1 class="titleHeader">CONTACT</h1>
+		<h1 class="titleSub">Bricksquad</h1>
+		<p class='tagline'>F&ouml;r oss som gillar Lego mer &auml;n stegu!</p>
 	</div>
 
-	<div class="list" id="list">
+	<div class="head">
 		<p>
-			Contact us if you want toooooooooooo.
+			<h2>Members</h2>
 		</p>
 	</div>
 
 	<div class="selected" id="selected">
-		<p>
+		<div class="contactMember">
+			<img src="./images/daniel.jpg" alt="daniel"><br />
 			Daniel R&ouml;nnkvist <br/>
-			<a href="mailto:danro716@student.liu.se"> danro716@student.liu.se </a><br/>
-			<br/>
+			<a href="mailto:danro716@student.liu.se"> danro716@student.liu.se </a>
+		</div>
+		<div class="contactMember">
+			<img src="./images/Erik.jpg" alt="erik"><br />
 			Erik Larsson<br/>
-			<a href="mailto:erila135@student.liu.se">erila135@student.liu.se </a><br/>
-			<br/>
+			<a href="mailto:erila135@student.liu.se">erila135@student.liu.se </a>
+		</div>
+		<div class="contactMember">
+			<img src="./images/pelle.jpg" alt="pelle"><br />
 			Pelle Serander<br/>
-			<a href="mailto:pelse862@student.liu.se">pelse862@student.liu.se </a><br/>
-			<br/>
+			<a href="mailto:pelse862@student.liu.se">pelse862@student.liu.se </a>
+		</div>
+		<div class="contactMember">
+			<img src="./images/totte.jpg" alt="totte"><br />
 			Erik Olsson<br/>
-			<a href="mailto:eriol726@student.liu.se">eriol726@student.liu.se </a><br/>
+			<a href="mailto:eriol726@student.liu.se">eriol726@student.liu.se </a>
+		</div>
 		</p>
 	</div>
-
-	<div class="is" id="is">
-		<p>
-			CALL ME MAYBE!
-			<br/>
-			<br/>
-			<a href="callto:0763967424">Daniel: 0763-96 74 24</a><br/><br/>
-			<a href="callto:0735052056">Erik: 0735-05 20 56</a><br/><br/>
-			<a href="callto:0760298037">Pelle: 0760-29 80 37</a>
-		</p>
-	</div>
-</body>
-</html>
+<?php
+require("./templates/footer.php");
+?>

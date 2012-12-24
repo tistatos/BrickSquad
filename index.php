@@ -13,39 +13,23 @@
 		<p class='tagline'>F&ouml;r oss som gillar Lego mer &auml;n stegu!</p>
 </div>
 
-<div class="list" id="list">
-<p>
-	<!-- TEST CODE REMOVE WHEN WE GO LIVE! -->
-	<table class="partlist">
-		<tr class="header"><th width="20%">SetID</th><th width="15%">CatID</th><th >Setname</th><th width="15%">Year</th></tr>
-		<tr class="parts" onclick="location.href='./search.php?setnr=&setnr_specific=1712-1'"><td>1712-1</td><td>9</td><td>Crossbow Cart</td><td>1994</td></tr>
-		<tr class="parts" onclick="location.href='./search.php?setnr=&setnr_specific=1712-1'"><td>1712-1</td><td>9</td><td>Crossbow Cart</td><td>1994</td></tr>
-		<tr class="parts" onclick="location.href='./search.php?setnr=&setnr_specific=1712-1'"><td>1712-1</td><td>9</td><td>Crossbow Cart</td><td>1994</td></tr>
-		<tr class="parts" onclick="location.href='./search.php?setnr=&setnr_specific=1712-1'"><td>1712-1</td><td>9</td><td>Crossbow Cart</td><td>1994</td></tr>
-		<tr class="parts" onclick="location.href='./search.php?setnr=&setnr_specific=1712-1'"><td>1712-1</td><td>9</td><td>Crossbow Cart</td><td>1994</td></tr>
-		<tr class="parts" onclick="location.href='./search.php?setnr=&setnr_specific=1712-1'"><td>1712-1</td><td>9</td><td>Crossbow Cart</td><td>1994</td></tr>
-		<tr class="parts" onclick="location.href='./search.php?setnr=&setnr_specific=1712-1'"><td>1712-1</td><td>9</td><td>Crossbow Cart</td><td>1994</td></tr>
-		<tr class="parts" onclick="location.href='./search.php?setnr=&setnr_specific=1712-1'"><td>1712-1</td><td>9</td><td>Crossbow Cart</td><td>1994</td></tr>
-		<tr class="parts" onclick="location.href='./search.php?setnr=&setnr_specific=1712-1'"><td>1712-1</td><td>9</td><td>Crossbow Cart</td><td>1994</td></tr>
-		<tr class="parts" onclick="location.href='./search.php?setnr=&setnr_specific=1712-1'"><td>1712-1</td><td>9</td><td>Crossbow Cart</td><td>1994</td></tr>
-		<tr class="parts" onclick="location.href='./search.php?setnr=&setnr_specific=1712-1'"><td>1712-1</td><td>9</td><td>Crossbow Cart</td><td>1994</td></tr>
-		<tr class="parts" onclick="location.href='./search.php?setnr=&setnr_specific=1712-1'"><td>1712-1</td><td>9</td><td>Crossbow Cart</td><td>1994</td></tr>
-	</table>
-	<!-- TEST CODE REMOVE WHEN WE GO LIVE! -->
-</p>
+<div class="head">
+	<p> <h1>Set</h1> </p>
 </div>
-
 <div class="selected" id="selected">
+	<p>
+		<h1 class="titleHeader">Set of the Day!</h1>
+	</p>
 	<!-- TEST CODE REMOVE WHEN WE GO LIVE! -->
-	<img class='select' src=http://www.bricklink.com/SL/1712-1.jpg><br /> <p>Satsnummer: 1712-1</p> 		<br />
+	<img class='select' src=http://www.bricklink.com/SL/1712-1.jpg><br /><br />
 	<table class="info">
 		<tr class="header">
-			<td>Set Id</td>
-			<td>Category</td>
-			<td>Set Name</td>
-			<td>Year of release</td>
+			<th>Set Id</th>
+			<th>Category</th>
+			<th>Set Name</th>
+			<th>Year of release</th>
 		</tr>
-		<tr>
+		<tr class="parts">
 			<td>1712-1</td>
 			<td>Castle</td>
 			<td>Crossbow cart</td>
@@ -54,8 +38,11 @@
 	</table>
 	<!-- TEST CODE REMOVE WHEN WE GO LIVE! -->
 </div>
-
-<div class="is" id="is">
+<div class="head">
+	<p> <h1>Parts</h1> </p>
+</div>
+<div class="partlist" id="is">
+<p>
 	<!-- TEST CODE REMOVE WHEN WE GO LIVE! -->
 	<table>
 		<tr class="header"><th>SetID</th><th>Qty</th><th>Color</th><th>Name</th><th>Image</th></tr>
@@ -70,9 +57,11 @@
 		<tr class="parts" onclick="location.href='./search.php?setnr=&setnr_specific=1712-1'"><td>1712-1</td><td>1</td><td>Black</td><td>Plate, Modified 2 x 2 with Wheels Holder</td><td><img src='http://img.bricklink.com/P/11/4600.gif' alt='gif-image' /></td></tr>
 		<tr class="parts" onclick="location.href='./search.php?setnr=&setnr_specific=1712-1'"><td>1712-1</td><td>1</td><td>Light Gray</td><td>Plate, Round 1 x 1 Straight Side</td><td><img src='http://img.bricklink.com/P/9/4073.gif' alt='gif-image' /></td></tr>
 	</table>
+</p>
 	<p class="pages">1 2 3 4 5</p>
 	<!-- TEST CODE REMOVE WHEN WE GO LIVE! -->
 </div>
 
-</body>
-</html>
+<?php
+require("./templates/footer.php");
+?>
