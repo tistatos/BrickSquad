@@ -3,6 +3,8 @@
 * 	Name:	Erik Larsson
 *  	file: 	menu.js
 *  Desc:	javascript controlling menu expanding
+*
+*  !!!NO Longer implemented with new layout!!!
 */
 
 //are mouse pointer within menu borders

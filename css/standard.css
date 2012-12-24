@@ -10,7 +10,7 @@ body
 	margin: 4% 10%;
 	font-family: Verdana;
 	cursor: default;
-	background-color: #E6E6E6;
+	background-color: #FFFFFF;
 	min-width: 600px;
 	color: #D3D3D3	;
 }
@@ -54,7 +54,7 @@ div.menu
 }
 .title
 {
-	background-color: #0E53A7;
+	background-color: #4284D3;
 	width: 100%;
 	height: 25%;
 }
@@ -72,14 +72,14 @@ div.menu
 	float: left;
 	width: 60%;
 	height: 75%;
-	background-color: #2560FA;
+	background-color: #4284D3;
 }
 .is
 {
 	margin-left: 40%;
 	width: 60%;
 	height: 125%;
-	background-color: #2560FA;
+	background-color: #4284D3;
 	overflow: hidden;
 }
 
