@@ -22,27 +22,7 @@
 	</div>
 
 	<div class="selected" id="selected">
-		<div class="contactMember">
-			<img src="./images/daniel.jpg" alt="daniel"><br />
-			Daniel R&ouml;nnkvist <br/>
-			<a href="mailto:danro716@student.liu.se"> danro716@student.liu.se </a>
-		</div>
-		<div class="contactMember">
-			<img src="./images/Erik.jpg" alt="erik"><br />
-			Erik Larsson<br/>
-			<a href="mailto:erila135@student.liu.se">erila135@student.liu.se </a>
-		</div>
-		<div class="contactMember">
-			<img src="./images/pelle.jpg" alt="pelle"><br />
-			Pelle Serander<br/>
-			<a href="mailto:pelse862@student.liu.se">pelse862@student.liu.se </a>
-		</div>
-		<div class="contactMember">
-			<img src="./images/totte.jpg" alt="totte"><br />
-			Erik Olsson<br/>
-			<a href="mailto:eriol726@student.liu.se">eriol726@student.liu.se </a>
-		</div>
-		</p>
+		<?php require('templates/form.php') ?>
 	</div>
 <?php
 require("./templates/footer.php");
