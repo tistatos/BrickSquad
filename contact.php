@@ -15,12 +15,6 @@
 		<p class='tagline'>F&ouml;r oss som gillar Lego mer &auml;n stegu!</p>
 	</div>
 
-	<div class="head">
-		<p>
-			<h2>Members</h2>
-		</p>
-	</div>
-
 	<div class="selected" id="selected">
 		<?php require('templates/form.php') ?>
 	</div>

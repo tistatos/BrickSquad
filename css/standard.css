@@ -106,7 +106,6 @@ div.partlist
 	padding: 1px;
 	float: left;
 }
-
 .footnote
 {
 	text-align: center;
@@ -221,7 +220,7 @@ img.menu
 	width: 40px;
 }
 
-/***
+/**
  *  Headers
  */
 h1.titleHeader
@@ -236,4 +235,13 @@ h1.titleHeader
 	color: #FF9C00;
 	text-align: center;
 	font-size: 10px;
+}
+
+/**
+ *		Form
+ */
+
+textarea
+{
+	resize: none;
 }
