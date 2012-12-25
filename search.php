@@ -25,6 +25,10 @@
 			<br />
 			Part ID:<input type="text" size="40" name="part_id" />
 			<input type=submit value="Submit" />
+			Set Name:<input type="text" size="40" name="set_name" />
+			<input type=submit value="Submit" />
+			Part Name:<input type="text" size="40" name="part_name" />
+			<input type=submit value="Submit" />
 		</form>
 	</div>
 
@@ -81,6 +85,16 @@
 			$contents = mysql_query("SELECT * FROM parts WHERE PartID ='" . $part_id . "'");
 			CreateTable($contents);
 		}
+		else if(sizeof($_GET) != 0 && $_GET['set_name'] != "")
+		{
+			mysql_query("SELECT `SetID` FROM `sets` WHERE `Setname` ='" .$set_name."'");
+			CreateTable($contents);
+		}
+		else if(sizeof($_GET) != 0 && $_GET['part_name'] != "")
+		{
+			mysql_query("SELECT PartID FROM `parts` WHERE `Partname` = '".$part_name."'");
+			CreateTable($contents);
+		}
 		?>
 		</p>
 	</div>
@@ -102,7 +116,7 @@
 				$site = "http://www.bricklink.com/SL/" . $setnr_specific .".jpg OR .png OR .gif" ; // bild för setnumber specifik
 				echo("<img class='select' src=$site>");
 			}
-			else if ($part_id != "")                   //fixme!
+			else if ($part_id != "")                   //fixme (validering bilder?)
 			{
 
 				$colorIdQuery = mysql_query("	SELECT DISTINCT colors.ColorID, colors.Colorname FROM inventory
@@ -206,7 +220,7 @@
 
 						$partRow = mysql_fetch_row($partIdQuery);
 
-						$colorIdQuery = mysql_query("	SELECT colors.ColorID, colors.Colorname FROM inventory
+						$colorIdQuery = mysql_query("SELECT colors.ColorID, colors.Colorname FROM inventory
 													JOIN colors ON inventory.ColorID = colors.ColorID
 													JOIN parts ON inventory.ItemID = parts.PartID
 													WHERE PartID = '". $partRow[0] ."' AND Colorname = '". $colorName ."'");
@@ -287,7 +301,9 @@
 				}
 		*/
 
-
+ 
+		
+ 
 
 ?>
 </div>
