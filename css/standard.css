@@ -14,6 +14,7 @@ body
 	background-color: #E7E8FE;
 	min-width: 600px;
 	color: #FF9C00;
+	color: #4A4A4A;
 }
 
 /**
@@ -116,6 +117,14 @@ div.partlist
 	border: 1px solid black;
 
 }
+.search
+{
+	height: 25%;
+	border: 1px solid black;
+	width: 75%;
+	font-size: 23px;
+	overflow: hidden;
+}
 
 
 /**
@@ -182,6 +191,36 @@ a:hover
 	color:#4A4A4A;
 }
 
+/*
+ *		Search field stuffs
+ */
+
+/*
+ *		spans!
+ */
+span.left
+{
+	width: 400px;
+	margin-left: 0.5%;
+	text-align: right;
+	float: left;
+}
+span.right
+{
+	width: 400px;
+	margin-right: 54%;
+	text-align: right;
+	float: right;
+}
+
+/*
+ *		Form
+ */
+form
+{
+	margin: 10px 50px;
+}
+
 /**
  *		Paragraphs
  */
@@ -236,4 +275,32 @@ h1.titleHeader
 	color: #FF9C00;
 	text-align: center;
 	font-size: 10px;
+}
+/*
+ *		Inputs
+ */
+input.main-search
+{
+	width: 296px;
+	height: 29px;
+}
+input.main-searchfield
+{
+	margin-right: -8px;
+	height: 21px;
+	outline: none;
+}
+input
+{
+	border: none;
+}
+.submit
+{
+	width: 23px;
+	padding-top: 8px;
+	position: absolute;
+}
+.pil
+{
+	width: 15px;
 }

@@ -12,7 +12,7 @@
 <html>
 	<head>
 			<title>Bricksquad - F&ouml;r oss som gillar Lego mer &auml;n stegu!</title>
-			<link rel="stylesheet" type="text/css" href="./css/searchstyle.css" />
+			<link rel="stylesheet" type="text/css" href="./css/standard.css" />
 			<script type="text/javascript" src="./js/script.js"></script>
 			<script type="text/javascript" src="./js/menu.js"></script>
 			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>

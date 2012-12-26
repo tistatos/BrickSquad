@@ -14,7 +14,9 @@
 		<h1 class="titleSub">Bricksquad</h1>
 		<p class='tagline'>F&ouml;r oss som gillar Lego mer &auml;n stegu!</p>
 	</div>
-
+	<div class="head">
+		<p> <h1> Info </h1></p>
+	</div>
 	<div class="selected" id="selected">
 		<p>
 		<!-- TEST CODE -->
