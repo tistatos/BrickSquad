@@ -260,7 +260,7 @@ img.menu
 	width: 40px;
 }
 
-/***
+/**
  *  Headers
  */
 h1.titleHeader
@@ -303,4 +303,9 @@ input
 .pil
 {
 	width: 15px;
+}
+
+textarea
+{
+	resize: none;
 }

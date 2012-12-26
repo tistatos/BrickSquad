@@ -32,6 +32,9 @@
 				$setnr = $_GET['setnr'];
 				$setnr_specific = $_GET["setnr_specific"];
 				$part_id = $_GET["part_id"];
+				$set_name = $_GET["set_name"];
+				$part_name = $_GET["part_name"];
+
 			}
 
 			//Includes function for handling SQL result layout

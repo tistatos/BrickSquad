@@ -14,20 +14,34 @@
 		<h1 class="titleSub">Bricksquad</h1>
 		<p class='tagline'>F&ouml;r oss som gillar Lego mer &auml;n stegu!</p>
 	</div>
+
 	<div class="head">
-		<p> <h1> Info </h1></p>
-	</div>
-	<div class="selected" id="selected">
 		<p>
-		<!-- TEST CODE -->
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		<!-- TEST CODE -->
+			<h2>Members</h2>
 		</p>
+	</div>
+
+	<div class="selected" id="selected">
+		<div class="contactMember">
+			<img src="./images/daniel.jpg" alt="daniel"><br />
+			Daniel R&ouml;nnkvist <br/>
+			<a href="mailto:danro716@student.liu.se"> danro716@student.liu.se </a>
+		</div>
+		<div class="contactMember">
+			<img src="./images/Erik.jpg" alt="erik"><br />
+			Erik Larsson<br/>
+			<a href="mailto:erila135@student.liu.se">erila135@student.liu.se </a>
+		</div>
+		<div class="contactMember">
+			<img src="./images/pelle.jpg" alt="pelle"><br />
+			Pelle Serander<br/>
+			<a href="mailto:pelse862@student.liu.se">pelse862@student.liu.se </a>
+		</div>
+		<div class="contactMember">
+			<img src="./images/totte.jpg" alt="totte"><br />
+			Erik Olsson<br/>
+			<a href="mailto:eriol726@student.liu.se">eriol726@student.liu.se </a>
+		</div>
 	</div>
 
 <?php
