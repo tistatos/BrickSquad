@@ -34,6 +34,8 @@
 				$part_id = $_GET["part_id"];
 				$set_name = $_GET["set_name"];
 				$part_name = $_GET["part_name"];
+				$category_name = $_GET["category_name"];
+				$year = $_GET["year"];
 
 			}
 
