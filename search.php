@@ -11,11 +11,13 @@
 ?>
 
   <div class="title">
-    <h1 class="titleHeader">ABOUT</h1>
+		<h1 class="titleHeader">SEARCH</h1>
     <h1 class="titleSub">Bricksquad</h1>
     <p class='tagline'>F&ouml;r oss som gillar Lego mer &auml;n stegu!</p>
   </div>
-
+	<div class="head">
+		<p> <h1>Search</h1> </p>
+	</div>
   
   <!-- <div class="search" id="search"> -->
       <form action="search.php" method=GET name="form">
