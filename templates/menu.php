@@ -18,22 +18,22 @@ menuAutoClose();
 		<tr>
 			<td class="menu" onclick="location.href='index.php'">
 				<div class='menuItem'>
-					<img class='menu' src="./images/home_trans.png">Home
+					<img class='menu' src="./images/home.svg">Home
 				</div>
 			</td>
 			<td class="menu" onclick="location.href='search.php'">
 				<div class='menuItem'>
-					<img class='menu' src="./images/search_trans.png">Search
+					<img class='menu' src="./images/search.svg">Search
 				</div>
 			</td>
 			<td class="menu" onclick="location.href='about.php'">
 				<div class='menuItem'>
-					<img class='menu' src="./images/about_trans.png"> About
+					<img class='menu' src="./images/about.svg"> About
 				</div>
 			</td>
 			<td class="menu" onclick="location.href='contact.php'" >
 				<div class='menuItem'>
-					<img class='menu' src="./images/contact_trans.png"> Contact
+					<img class='menu' src="./images/contact.svg"> Contact
 				</div>
 			</td>
 		</tr>

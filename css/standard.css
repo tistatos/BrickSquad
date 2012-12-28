@@ -59,6 +59,7 @@ div.menuItem
 	min-width: 0px;
 	overflow: hidden;
 	color: #929292;
+	background: transparent;
 }
 .menuItem:hover
 {
@@ -304,8 +305,18 @@ input
 {
 	width: 15px;
 }
-
 textarea
 {
 	resize: none;
+}
+
+
+#contactImg
+{
+	width: 808px;
+	height: 240px;
+}
+.download
+{
+	width: 100px;
 }
