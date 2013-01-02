@@ -22,8 +22,7 @@ body
  */
 ::selection
 {
-	background:#cc0000;
-	color:#fff;
+	background:#B5B5B5;
 }
 
 /**
@@ -265,6 +264,11 @@ img.menu
 .select
 {
 	width: 500px;
+}
+
+.image_resize
+{
+	width: 150px;
 }
 
 /**

@@ -187,8 +187,7 @@
         createPartListTable($partContent);
         echo('</div>');
       }
-    }
-  }
+    
 ?>
 
     <?php
