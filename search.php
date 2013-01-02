@@ -187,187 +187,34 @@
         createPartListTable($partContent);
         echo('</div>');
       }
-    
-?>
-
-    <?php
-    //Get Picture FIXME
-    /*
-      if ($part_id != "")                   //fixme (validering bilder?)
-      {
-
-        $colorIdQuery = mysql_query(" SELECT DISTINCT colors.ColorID, colors.Colorname FROM inventory
-                          JOIN colors ON inventory.ColorID = colors.ColorID
-                          JOIN parts ON inventory.ItemID = parts.PartID
-                          WHERE PartID = '". $part_id ."' ORDER BY ColorID");
-
-
-
-
-        echo("<table border=1>");
-
-        $alt_image = validate_image($part_id, $color_row[0]);
-
-        $filePathQuery = mysql_query(" SELECT filepath, isthere FROM `images` WHERE filepath LIKE 'P/$color_row[0]/%' ");
-
-        while ($color_row = mysql_fetch_row($colorIdQuery)){
-
-        $path_check ="P/" . $color_row[0] . "/" . $part_id . ".gif";
-
-
-              if($path_check == $filePathQuery)   //fixme!! fixa validering om inte bilden finns i DB
-              {
-              $site = "http://img.bricklink.com/P/" . $color_row[0] . "/" . $part_id . ".gif";
-                echo("<tr><td><img class='select' src=$site alt='no-image' /></td>");
-
-              }
-              else
-              {
-                validate_image($part_id, $color_row[0]);
-              }
-              echo("<td>$color_row[1]</td></tr>");
-        }
-        echo("</table > ");
-      }
-    }*/
-
-    ?>
-
-  <?php
-  /*
-  <div class="is" id="is">
-  //Content of selected set
-  if(sizeof($_GET) != 0)
-  {
-    $contents = mysql_query(" SELECT inventory.SetID, inventory.Quantity AS Qty,
-                  colors.Colorname as Color, parts.Partname as Name
-                  FROM inventory
-                  JOIN parts ON inventory.ItemID = parts.PartID
-                  JOIN colors ON inventory.ColorID = colors.ColorID
-                  WHERE inventory.SetID LIKE '$setnr-%'
-                  OR SetID ='" . $setnr_specific ."' ORDER BY SetID, Partname ");
-
-    if(mysql_num_rows($contents) == 0)
-    {
-      echo("Ingen detaljerad information funnen!");
     }
-    else
-    {
-      //Print headers for table
-      echo("<table border=1>\n<tr>");
-      for($i =0; $i < mysql_num_fields($contents); $i++)
-      {
-        $fieldname = mysql_field_name($contents, $i);
-        echo("<th>$fieldname</th>");
-      }
-      echo ("<th>Image</th>");
-      echo "</tr>\n";
-
-      //fetch rows and fill table with data
-      while($row = mysql_fetch_row($contents))
-      {
-        echo('<tr onclick="location.href=\'./search.php?setnr=&setnr_specific='.$row[0].'\'">');
-        for($i=0; $i<mysql_num_fields($contents); $i++)
-        {
-
-          if($i == 3)
-          {
-            $colorName = $row[2];
-            $partName = $row[$i];
-
-            //FIXME Improve
-            //Query part name and potential minifig ID
-            $partIdQuery = mysql_query("SELECT PartID From parts WHERE Partname ='" . $partName ."'");
-            $miniFigIdQuery = mysql_query("SELECT MinifigID FROM minifigs where Minifigname = '". $partName ."'");
-
-            $partRow = mysql_fetch_row($partIdQuery);
-
-            $colorIdQuery = mysql_query("SELECT colors.ColorID, colors.Colorname FROM inventory
-                          JOIN colors ON inventory.ColorID = colors.ColorID
-                          JOIN parts ON inventory.ItemID = parts.PartID
-                          WHERE PartID = '". $partRow[0] ."' AND Colorname = '". $colorName ."'");
-            echo("<td>$row[$i]</td>");
-            $color_row = mysql_fetch_row($colorIdQuery);
-
-            $image_Query = mysql_query("SELECT filepath FROM `images` WHERE filepath= 'P/". $color_row[0]. "/".$partRow[0].".gif' AND isthere=TRUE");
-            $imageRow = mysql_fetch_row($image_Query);
-
-            $minifigRow = mysql_fetch_row($miniFigIdQuery);
-
-            if($imageRow != null)
-            {
-              $imglink = "http://img.bricklink.com/" . $imageRow[0];
-              echo("<td><img src='$imglink' alt='gif-image' /></td>");
-            }
-            else
-            {
-              validate_image($partRow[0], $color_row[0]);
-            }
-            if($minifigRow != null)
-            {
-              echo($partName);
-              $imglink_minifig = "http://img.bricklink.com/M/ ". $minifigRow[0].".gif";
-              echo("<td><img src='$imglink_minifig' alt='gif-image' /></td>");
-            }
-          }
-          else
-          {// asd
-            echo("<td>$row[$i]</td>");
-          }
-        }
-        echo("</tr>\n");
-      }
-      echo("</table>\n");
-    }
-
-
-
-      //Search query for everythhing in sets
-      $table_query = mysql_query("SELECT minifigs.MinifigID,inventory.Quantity, inventory.SetID, minifigs.Minifigname
-                      FROM inventory
-                      JOIN minifigs ON inventory.ItemID= minifigs.MinifigID
-                      WHERE inventory.SetID= '$setnr-%' OR inventory.SetID ='" . $setnr_specific ."'");
-
-
-      //echo($table_query[$i]);
-
-      if(mysql_num_rows($table_query) == 0)
-      {
-        echo("Ingen detaljerad information funnen!");
-      }
-      else
-      {
-        echo("<table border=1>\n");
-        echo("<th> MinifigID </th><th> Qty </th><th> SetID </th><th> Name</th><th> Image </th>");
-      }
-      while($miniFigTableRow = mysql_fetch_row($table_query))
-      {
-        echo("<tr>");
-        for($n=0; $n<mysql_num_fields($table_query); $n++)
-        {
-          echo("<td> $miniFigTableRow[$n] </td>");
-        }
-        $imglink_minifig = "http://img.bricklink.com/M/".$miniFigTableRow[0].".gif"  ;
-        echo("<td><img src='$imglink_minifig' alt='gif-image' /></td>");
-        echo("</tr>");
-      }
-        echo("</table>\n");
   }
-    /*
-    //Part search
-    $part_query = mysql_query("SELECT PartID, Partname FROM `parts` WHERE PartID = 'part_id' ");
-    $partTable_row = mysql_fetch_row($part_query);
-
-        echo("<td>$partTable_row[0]</td>");
-          }
-        }
-
-
-</div>
-*/
-?>
-
-
-<?php
   require("./templates/footer.php");
+
+  //Get Picture FIXME
+  /*
+  $miniFigIdQuery = mysql_query("SELECT MinifigID FROM minifigs where Minifigname = '". $partName ."'");
+
+  $minifigRow = mysql_fetch_row($miniFigIdQuery);
+
+  if($minifigRow != null)
+  {
+    echo($partName);
+    $imglink_minifig = "http://img.bricklink.com/M/ ". $minifigRow[0].".gif";
+    echo("<td><img src='$imglink_minifig' alt='gif-image' /></td>");
+  }
+ echo("<table border=1>\n");
+ echo("<th> MinifigID </th><th> Qty </th><th> SetID </th><th> Name</th><th> Image </th>");
+ while($miniFigTableRow = mysql_fetch_row($table_query))
+ {
+    echo("<tr>");
+    for($n=0; $n<mysql_num_fields($table_query); $n++)
+    {
+      echo("<td> $miniFigTableRow[$n] </td>");
+    }
+    $imglink_minifig = "http://img.bricklink.com/M/".$miniFigTableRow[0].".gif"  ;
+    echo("<td><img src='$imglink_minifig' alt='gif-image' /></td>");
+    echo("</tr>");
+  }
+*/
 ?>
