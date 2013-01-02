@@ -7,38 +7,31 @@
  */
 ?>
 
-<script type="text/javascript">
-<!--  id="menu" onmouseover="menuMouseEnter();" onmouseout="menuMouseExit();"
-menuAutoClose();
--->
-</script>
 <center>
 <div class="menu">
 	<table class="menuTable">
 		<tr>
 			<td class="menu" onclick="location.href='index.php'">
 				<div class='menuItem'>
-					<img class='menu' src="./images/home.svg">Home
+					<img class='menu' src="./images/Home.svg">Home
 				</div>
 			</td>
 			<td class="menu" onclick="location.href='search.php'">
 				<div class='menuItem'>
-					<img class='menu' src="./images/search.svg">Search
+					<img class='menu' src="./images/Search.svg">Search
 				</div>
 			</td>
 			<td class="menu" onclick="location.href='about.php'">
 				<div class='menuItem'>
-					<img class='menu' src="./images/about.svg"> About
+					<img class='menu' src="./images/About.svg"> About
 				</div>
 			</td>
 			<td class="menu" onclick="location.href='contact.php'" >
 				<div class='menuItem'>
-					<img class='menu' src="./images/contact.svg"> Contact
+					<img class='menu' src="./images/Contact.svg"> Contact
 				</div>
 			</td>
 		</tr>
 	</table>
-
-<!-- <img src='./images/uc.gif' width=760> -->
 </div>
 </center>

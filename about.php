@@ -28,7 +28,7 @@
 				Daniel R&ouml;nnkvist
 			</div>
 			<div class="contactMember">
-				<img src="./images/Erik.jpg" alt="erik"><br />
+				<img src="./images/erik.jpg" alt="erik"><br />
 				Erik Larsson
 			</div>
 			<div class="contactMember">

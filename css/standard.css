@@ -75,11 +75,12 @@ div.menuItem
 	text-align: center;
 	margin-top: 10px;
 	width: 75%;
-	height: 79%;
+	min-height: 79%;
 	border: 1px solid black;
 	margin-top: 0px;
-
+	overflow: auto;
 }
+
 .head
 {
 	background-image:url('../images/divhead.png');
@@ -97,7 +98,7 @@ div.partlist
 {
 	border: 1px solid black;
 	width: 75%;
-	height: 700px;
+	min-height: 100px;
 	overflow: hidden;
 	margin-left: auto;
 	margin-right: auto;
@@ -120,7 +121,8 @@ div.partlist
 }
 .search
 {
-	height: 25%;
+	min-height: 130px;
+	height: 15%;
 	border: 1px solid black;
 	width: 75%;
 	font-size: 23px;
@@ -160,11 +162,11 @@ table
 }
 .partlist
 {
-	table-layout: fixed;
 	width: 90%;
 }
 tr.header
 {
+	text-align: left;
 	background-color: #FF9C00;
 	color: #0E53A7;
 }
@@ -259,6 +261,10 @@ p.partlist
 img.menu
 {
 	width: 40px;
+}
+.select
+{
+	width: 500px;
 }
 
 /**
