@@ -11,14 +11,14 @@
 ?>
 
   <div class="title">
-    <h1 class="titleHeader">ABOUT</h1>
+    <h1 class="titleHeader">SEARCH</h1>
     <h1 class="titleSub">Bricksquad</h1>
     <p class='tagline'>F&ouml;r oss som gillar Lego mer &auml;n stegu!</p>
   </div>
 
   
   <!-- <div class="search" id="search"> -->
-      <form action="search.php" method=GET name="form">
+      <form action="search.php" onsubmit="javascript: return Validation();" method=GET name="form">
       
       <table style = "border:1px solid black; text-align:left; width:200px; background-color:gray; padding:5px; margin-top: 10px;">
       <tr>
@@ -249,7 +249,7 @@
         }
         
         $site = "http://www.bricklink.com/SL/" . $SetID_for_image . ".jpg";
-        echo("<td><img class='image_resize' src=$site alt='gif-image' /></td>");
+        echo("<td><img class='image_Queryresize' src=$site alt='gif-image' /></td>");
         
         echo("</tr>");
       }

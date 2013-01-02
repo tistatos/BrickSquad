@@ -16,7 +16,6 @@
 			<script type="text/javascript" src="./js/script.js"></script>
 			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 			<script type="text/javascript" src="./js/menu.js"></script>
-			<script type="text/javascript" src="./js/formvalidation.js"></script>
 			<link rel="shortcut icon" href="./images/favicon.ico">
 	</head>
 <body>

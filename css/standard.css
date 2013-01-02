@@ -22,8 +22,7 @@ body
  */
 ::selection
 {
-	background:#cc0000;
-	color:#fff;
+	background:#B5B5B5;
 }
 
 /**
@@ -260,6 +259,10 @@ img.menu
 {
 	width: 40px;
 }
+.image_resize
+{
+	width: 150px;
+}
 
 /**
  *  Headers
@@ -320,3 +323,6 @@ textarea
 {
 	width: 100px;
 }
+
+
+

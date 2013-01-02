@@ -1,4 +1,4 @@
-function validate()
+function conatctvalidate()
 {
 	var form = document.getElementById("form");
 	var email = form.contact_email.value;

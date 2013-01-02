@@ -36,7 +36,7 @@ if(isset($_POST['contact_name']) && isset($_POST['contact_email']) && isset($_PO
 }
 else
 {
-	echo '<form id="form" action="kontakt.php" onsubmit="javascript: return validate();" method="POST">';
+	echo '<form id="form" action="kontakt.php" onsubmit="javascript: return contactvalidate();" method="POST">';
 	echo 'Name:<br><input type="text" name="contact_name" maxlength="30"><br><br>';
 	echo 'Email:<br><input type="text" name="contact_email" maxlength="50"><br><br>';
 	echo 'Message:<br>';
