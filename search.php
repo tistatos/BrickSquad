@@ -11,13 +11,11 @@
 ?>
 
   <div class="title">
-		<h1 class="titleHeader">SEARCH</h1>
+    <h1 class="titleHeader">ABOUT</h1>
     <h1 class="titleSub">Bricksquad</h1>
     <p class='tagline'>F&ouml;r oss som gillar Lego mer &auml;n stegu!</p>
   </div>
-	<div class="head">
-		<p> <h1>Search</h1> </p>
-	</div>
+
   
   <!-- <div class="search" id="search"> -->
       <form action="search.php" method=GET name="form">
@@ -25,15 +23,52 @@
       <table style = "border:1px solid black; text-align:left; width:200px; background-color:gray; padding:5px; margin-top: 10px;">
       <tr>
         <td>
-        Common Set ID:<input type="text" size="40" name="setnr" />
+          <select name="searchtype">
+            <option value="SetID" selected="selected">Common SetID</option>
+            <option value="set_name">Setname</option>
+      <option value="part_id">PartID</option>
+            <option value="part_name">Partname</option>
+            <option value="category_name">Categoryname</option>
+          </select>
+          
+          
         </td>
         <td>
-        <input type=submit value="Submit" />
+          Title:<input type="text" size="40" name="searchstring" />
         </td>
       </tr>
       <tr>
         <td>
-        Specific Set ID:<input type="text" size="40" name="setnr_specific" />
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Year:<input type="text" size="40" name="year_set" />
+        </td>
+        <td>
+          <input type=submit value="Submit" />
+        </td>
+        <td>
+          Color:<input type="text" size="40" name="part_color" />
+        </td>
+        <td>
+          <input type=submit value="Submit" />
+        </td>
+      </tr>
+      </table>
+      
+      <!-- Gamla tabellen utan dropdown -->
+      <!--
+      <table style = "border:1px solid black; text-align:left; width:200px; background-color:gray; padding:5px; margin-top: 10px;">
+      <tr>
+        <td>
+        Common Set ID:<input type="text" size="40" name="setnr" />
         </td>
         <td>
         <input type=submit value="Submit" />
@@ -70,153 +105,165 @@
         <td>
         <input type=submit value="Submit" />
         </td>
-        Year:<input type="text" size="40" name="year" />
+      </tr>
+      <tr>
+        <td>
+          Year:<input type="text" size="40" name="year_set" />
         </td>
         <td>
-        <input type=submit value="Submit" />
+          <input type=submit value="Submit" />
         </td>
       </tr>
+      <tr>
+        <td>
+          Color:<input type="text" size="40" name="part_color" />
+        </td>
+        <td>
+          <input type=submit value="Submit" />
+        </td>
+       </tr>
       </table>
+      
       </form>
   
 
-  <!--
-  <div class="search" id="search">
-    <form action="search.php" method=POST name="form">
-      <span id="main-search">
-        <label for="main-searchfield">Search for:</label>
-        <input type="text" size="40" name="setnr" class="main-searchfield" id="main-searchfield" />
-        <input type="image" src="images/search-glas.png" class="submit" onsubmit="submit-form();" /><br/>
-      </span>
-      <p class="adv">
-        Advanced Search
-        <input type="image" src="images/pil.png" class="pil">
-      </p>
-      <div id="advanced-search">
-        <span class='left'>
-          <label for="year">Year:</label>
-          <input type='text' size='40' name='year' id='year' />
-          <label for="color">Color:</label>
-          <input type='text' size='40' name='color' id='color' />
-        </span>
-
-        <span class='right'>
-          <label for="category">Category:</label>
-          <input type='text' size='40' name='category' id='category' />
-          <label for="tags">Tags:</label>
-          <input type='text' size='40' name='tags' id='tags' />
-        </span>
-      </div>
-    </form>
-  </div>
   -->
 
   <div class="list" id="list">
     <p>
     <?php
-    //common search
-
+  
+  
+   foreach($_GET as $key => $value)
+   {
+      print("<p>" . $key . " = " . $value . "</p>\n");
+   }
+   
+  
+  
+  
+  echo("Searchtype:   $searchtype");
+  echo("</br>Searchstring:   $searchstring");
+  
+  switch($searchtype){
+    case 'SetID':
+  
+      $setnr=$searchstring;
+      
+      $check_last_number = strstr($setnr, '-');
+      
+      if ($check_last_number != "")
+      {
+      $setnr_specific = $setnr;  
+      $contents = mysql_query("SELECT * FROM sets WHERE SetID = '" . $setnr_specific . "'");
+      }
+      else
+      {
+      $contents = mysql_query("SELECT * FROM sets WHERE SetID LIKE '$setnr-%'");
+      }
+      CreateTable($contents);
     
-
-
-    if(sizeof($_GET) != 0 && $_GET['setnr'] != "")
-    {
-      //Query Database for any set - FIXME make specific and common the same!
-      $contents = mysql_query("SELECT * FROM sets WHERE SetID LIKE '$setnr-%' AND Year ='" . $year ."'" );
-      CreateTable($contents);
-      $setnr_specific = $setnr."-1";      //////////////FULKODDDNING!!!!!!!!!!!!!!!!!!!! anger setnr_specific ett värde så att minifigurerna visas
-    }
-    //Specific search for sets
-    else if(sizeof($_GET) != 0 && $_GET['setnr_specific'] != "")
-    {
-      $contents = mysql_query("SELECT * FROM sets WHERE SetID ='" . $setnr_specific ."'");
-      CreateTable($contents);
-    }
-
-    //Search for part
-    else if(sizeof($_GET) != 0 && $_GET['part_id'] != "")
-    {
       $contents = mysql_query("SELECT * FROM parts WHERE PartID ='" . $part_id . "'");
       CreateTable($contents);
-    }
-    else if(sizeof($_GET) != 0 && $_GET['set_name'] != "")
-    { 
-      $setnr_specific = mysql_query("SELECT SetID FROM sets WHERE Setname ='" . $set_name . "'");  //klipper ut SetID
-      $setnr_specific_row = mysql_fetch_row($setnr_specific);
-      //echo ($setnr_specific_row[0]);
-      $setnr_specific = $setnr_specific_row[0];
-      //echo("<p>Specific setnr:  </p> $setnr_specific_row[0]");
-      $contents = mysql_query("SELECT * FROM sets WHERE Setname ='" . $set_name ."'");
-      CreateTable($contents);
-      
-    }
-    else if(sizeof($_GET) != 0 && $_GET['category_name'] != "")
-    { 
-    $catalog_id = mysql_query("SELECT CatID FROM categories WHERE Categoryname ='" . $category_name ."'");
-
-    $catalog_id_row = mysql_fetch_row($catalog_id);
-    echo ($catalog_id_row[0]);
-    $contents = mysql_query("SELECT * From sets WHERE CatID ='" . $catalog_id_row[0] . "' ORDER BY Year");
+      break;
     
-    echo("<table border=1><tr>");
-    for($i =0; $i < mysql_num_fields($contents); $i++)
-      {
+    case 'set_name':
+      
+      $set_name=$searchstring;
+    
+      $setnr_specific = mysql_query("SELECT SetID FROM sets WHERE Setname ='" . $set_name . "'");  //klipper ut SetID
+      
+      $setnr_specific_row = mysql_fetch_row($setnr_specific);
+      
+      $setnr_specific = $setnr_specific_row[0];
+     
+      
+      if ($_GET["year_set"] != ""){
+      $contents = mysql_query("SELECT * FROM sets WHERE Setname ='" . $set_name ."' AND Year = '" . $year_set . "'");
+      }
+      else{
+      $contents = mysql_query("SELECT * FROM sets WHERE Setname ='" . $set_name ."'");
+      }
+      CreateTable($contents);
+      break;
+    
+    case 'part_id':  
+      $part_id=$searchstring;
+      
+      
+      $contents = mysql_query("SELECT * FROM parts WHERE PartID ='" . $part_id . "'");
+    CreateTable($contents);
+        
+        break;
+      
+    case 'part_name' :
+    
+    $part_name=$searchstring;
+    
+    $part_id = mysql_query("SELECT PartID FROM parts WHERE Partname ='" . $part_name . "'");  //klipper ut part_id
+    $part_id_row = mysql_fetch_row($part_id);
+    $part_id = $part_id_row[0];
+      
+    $contents = mysql_query("SELECT * FROM parts WHERE PartID ='" . $part_id_row[0] . "'");
+    CreateTable($contents);
+    
+    break;
+      
+    case 'category_name': 
+  
+      $category_name=$searchstring;
+    
+      $catalog_id = mysql_query("SELECT CatID FROM categories WHERE Categoryname ='" . $category_name ."'");
+
+      $catalog_id_row = mysql_fetch_row($catalog_id);
+      echo ($catalog_id_row[0]);
+    
+      if ($year_set != ""){
+        $contents = mysql_query("SELECT * From sets WHERE CatID ='" . $catalog_id_row[0] . "' AND Year = '" . $year_set . "'");
+      }
+      else{
+      $contents = mysql_query("SELECT * From sets WHERE CatID ='" . $catalog_id_row[0] . "' ORDER BY Year");
+      }
+    
+      //tabell för kategori
+      echo("<table border=1><tr>");
+      for($i =0; $i < mysql_num_fields($contents); $i++)
+        {
         $fieldname = mysql_field_name($contents, $i);
         echo("<th>$fieldname</th>");
-      }
-      echo ("<th>Imageeeeee</th>");  //fulkooood!
-      
-    while($row = mysql_fetch_row($contents))
+        }
+        echo ("<th>Imageeeeeeeee</th>");  //fulkooood!
+        
+      while($row = mysql_fetch_row($contents))
       {
         echo('<tr onclick="location.href=\'./search.php?setnr=&setnr_specific='.$row[0].'\'">');
-        for($i=0; $i<mysql_num_fields($contents); $i++)
+        
+        for($i=0; $i<mysql_num_fields($contents); $i++) 
         {
-            if($i == 0)
-            {
-              $SetID_for_image = $row[$i];
-            }
-            echo("<td>$row[$i]</td>");
-            
+          if($i == 0)
+          {
+            $SetID_for_image = $row[$i];
+          }
+          echo("<td>$row[$i]</td>");
+          
         }
-        //echo("$SetID_for_image");
+        
         $site = "http://www.bricklink.com/SL/" . $SetID_for_image . ".jpg";
         echo("<td><img class='image_resize' src=$site alt='gif-image' /></td>");
-        //echo("<td>$SetID_for_image</td>");
+        
         echo("</tr>");
       }
+        
+      echo("</table>");
+      break;
       
-    echo("</table>");
-    
-    
-    
-    /*
-      echo("Kategorii nammmmna:   $category_name");
+    default: 
+      echo("Felinmatning");
+      break;
       
-       $category_query = mysql_query("SELECT sets.SetID FROM sets 
-                      JOIN categories ON sets.CatID = categories.CatID 
-                      WHERE Categoryname = '" . $category_name . "'");
-      
-       while ( $setnr_specific_row = mysql_fetch_row($category_query)){
-       $contents = mysql_query("SELECT * FROM sets WHERE SetID ='" . $setnr_specific_row[0] ."'");
-       CreateTable($contents);
-       }
-       */
+    }
   
-      
-    }
-    else if(sizeof($_GET) != 0 && $_GET['part_name'] != "")
-    {
-      $part_id = mysql_query("SELECT PartID FROM parts WHERE Partname ='" . $part_name . "'");  //klipper ut part_id
-      $part_id_row = mysql_fetch_row($part_id);
-      $part_id = $part_id_row[0];
-      
-      $contents = mysql_query("SELECT * FROM parts WHERE PartID ='" . $part_id_row[0] . "'");
-      CreateTable($contents);
-      
-    }
-    
-    
-    
+  
     ?>
     </p>
   </div>
@@ -227,43 +274,49 @@
 
     if(sizeof($_GET) != 0)
     {
-      if($setnr != "")
+      
+
+      if($check_last_number != "") //om man har matat in tex 372-1 skrivs helt enkelt det vanliga setnr ut
       {
-        $site = "http://www.bricklink.com/SL/" . $setnr ."-1.jpg" ; // visar alltid första i setordningen
+        $site = "http://www.bricklink.com/SL/" . $setnr .".jpg" ;
+        echo("<img class='select' src=$site>");
+        echo("<br /> <p>Satsnummer: $setnr</p> ");
+        
+      }
+      else if($setnr != "")  // om man bara skriver in tex 372  visas alltid första i setordningen -1
+      {
+        $site = "http://www.bricklink.com/SL/" . $setnr . "-1.jpg OR .png OR .gif" ; 
         echo("<img class='select' src=$site>");
         echo("<br /> <p>Satsnummer: $setnr-1</p> ");
       }
-      else if($setnr_specific != "" )
+      else if($setnr == "" && $category_name == "") //om man klickar på ett set ska den specifika skrivas ut
       {
-        $site = "http://www.bricklink.com/SL/" . $setnr_specific .".jpg OR .png OR .gif" ; // bild för setnumber specifik
+        $site = "http://www.bricklink.com/SL/" . $setnr_specific . ".jpg OR .png OR .gif" ; 
         echo("<img class='select' src=$site>");
+        echo("<br /> <p>Satsnummer: $setnr_specific</p> ");
       }
       
-      /*
-      else if($set_name != "" )
-      {
-        $set_name_row = mysql_fetch_row($contens1);
-        echo("<p>debugg:  </p> $set_name_row[0]");
-        $site = "http://www.bricklink.com/SL/1094-1.jpg OR .png OR .gif" ; // bild för setnumber specifik
-        echo("<img class='select' src=$site>");
-        
-      }
-      */
       
-      else if ($part_id != "")                   //fixme (validering bilder?)
+      
+      if ($part_id || $part_name != "")                   //fixme (validering bilder?)
       {
 
+       if ($_GET["part_color"] != ""){
+        $colorIdQuery = mysql_query(" SELECT DISTINCT colors.ColorID, colors.Colorname FROM inventory
+                          JOIN colors ON inventory.ColorID = colors.ColorID
+                          JOIN parts ON inventory.ItemID = parts.PartID
+                          WHERE PartID = '". $part_id ."' And Colorname = '".$part_color. "' ORDER BY ColorID");
+      }
+      else
+      {
         $colorIdQuery = mysql_query(" SELECT DISTINCT colors.ColorID, colors.Colorname FROM inventory
                           JOIN colors ON inventory.ColorID = colors.ColorID
                           JOIN parts ON inventory.ItemID = parts.PartID
                           WHERE PartID = '". $part_id ."' ORDER BY ColorID");
-
-
-
-
+      }
         echo("<table border=1>");
 
-        $alt_image = validate_image($part_id, $color_row[0]);
+        //$alt_image = validate_image($part_id, $color_row[0]);
 
         $filePathQuery = mysql_query(" SELECT filepath, isthere FROM `images` WHERE filepath LIKE 'P/$color_row[0]/%' ");
 
@@ -283,10 +336,6 @@
                 validate_image($part_id, $color_row[0]);
               }
               echo("<td>$color_row[1]</td></tr>");
-
-
-
-
 
         }
         echo("</table > ");
@@ -339,6 +388,8 @@
       while($row = mysql_fetch_row($contents))
       {
         echo('<tr onclick="location.href=\'./search.php?setnr=&setnr_specific='.$row[0].'\'">');
+        
+        
         for($i=0; $i<mysql_num_fields($contents); $i++)
         {
 
@@ -425,19 +476,8 @@
       }
         echo("</table>\n");
   }
-    /*
-    //Part search
-    $part_query = mysql_query("SELECT PartID, Partname FROM `parts` WHERE PartID = 'part_id' ");
-    $partTable_row = mysql_fetch_row($part_query);
-
-        echo("<td>$partTable_row[0]</td>");
-          }
-        }
-    */
-
- 
     
- 
+
 
 ?>
 </div>

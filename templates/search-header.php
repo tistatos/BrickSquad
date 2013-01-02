@@ -30,12 +30,17 @@
 			if(sizeof($_GET) != 0)
 			{
 				$setnr = $_GET['setnr'];
-				$setnr_specific = $_GET["setnr_specific"];
-				$part_id = $_GET["part_id"];
-				$set_name = $_GET["set_name"];
-				$part_name = $_GET["part_name"];
-				$category_name = $_GET["category_name"];
-				$year = $_GET["year"];
+    			$setnr_specific = $_GET["setnr_specific"]; //kan tas bort
+   				$part_id = $_GET["part_id"];
+   				$part_color = $_GET["part_color"];
+    			$set_name = $_GET["set_name"];
+    			$part_name = $_GET["part_name"];
+   				$category_name = $_GET["category_name"];
+    			$year_set = $_GET["year_set"];
+    			$check_last_number = $_GET[""]; // varför?
+    
+    $searchtype = $_GET["searchtype"];
+    $searchstring = $_GET["searchstring"];
 
 			}
 
