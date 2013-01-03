@@ -84,6 +84,39 @@ function createPartListTable($queryResult)
 	echo("</table>\n");
 }
 
+function createMiniFigTable($queryResult)
+{
+	echo("<table class='info'>");
+	echo("<tr class='header'>");
+	for($i = 0; $i < (mysql_num_fields($queryResult));$i++)
+	{
+		$fieldname = mysql_field_name($queryResult, $i);
+		echo("<th>$fieldname</th>");
+	}
+	echo("<th>Image</th>");
+	echo("</tr>");
+
+	while($row = mysql_fetch_row($queryResult))
+	{
+		echo('<tr class="parts">');
+		for($i = 0; $i < mysql_num_fields($queryResult); $i++)
+		{
+			echo("<td>$row[$i]</td>");
+		}
+		$piclink = getPictureLink($row[0], "M");
+		if($piclink != "")
+		{
+			echo("<td><img src='$piclink' alt='gif-image' /></td>");
+		}
+		else
+		{
+			echo("<td>no image</td>");
+		}
+		echo("</tr>");
+	}
+	echo("</table>");
+
+}
 //Return number of results in query
 function numOfResults($queryResult)
 {

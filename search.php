@@ -34,14 +34,50 @@
     <form action="search.php" method="GET" id="searchForm" onsubmit="javascript:return searchValidate();">
       Search for:
       <select name="searchType" onchange="javascript:dropDownChange();">
-        <option value="setID">Set ID</option>
-        <option value="setName">Set Name</option>
-        <option value="setCat">Set Category</option>
-        <option value="partID">Part ID</option>
-        <option value="partName">Part Name</option>
-      </select> <br />
-      Search: <input type="text" size="40" name="searchString" /><br />
-      Year: <input type="text" size="20" name="searchYear" /><br />
+<?php
+      $types = array("setID" => "Set ID",
+                     "setName" => "Set Name",
+                     "setCat" => "Set Category",
+                     "partID" => "Part ID",
+                     "partName" => "Part Name" );
+      foreach ($types as $type => $name)
+      {
+        if($searchType == $type)
+        {
+          echo("<option value='$type' selected>$name</option>");
+        }
+        else
+        {
+          echo("<option value='$type'>$name</option>");
+        }
+      }
+      echo("</select> <br />");
+
+      //Users search is contained
+      if(isset($searchString))
+      {
+        echo("Search: <input type='text' size='40' name='searchString' value='$searchString'/>");
+      }
+      else
+      {
+        echo("Search: <input type='text' size='40' name='searchString' value=''/>");
+      }
+      echo("<br />");
+      if(isset($searchYear))
+      {
+        echo("Year: <input type='text' size='20' name='searchYear' value='$searchYear'/>");
+      }
+      else if($searchType == "partID" || $searchType == "partName")
+      {
+        echo("Year: <input type='text' size='20' name='searchYear' value='' disabled/>");
+      }
+      else
+      {
+        echo("lal");
+        echo("Year: <input type='text' size='20' name='searchYear' value=''/>");
+      }
+      echo("<br />");
+?>
       <input type=submit value="Submit" />
     </form>
   </div>
@@ -166,7 +202,7 @@
         $year = $row[3];
 
         $site = getPictureLink($setId, "S");
-        echo("<h1>$setId </h1>");
+        echo("<h1>$setName </h1>");
         if($site != "")
         {
           echo("<img class='select' src=$site alt='' /> <br />");
@@ -192,15 +228,31 @@
         echo('<p> <h1> Parts </h1></p>');
         echo('</div>');
         echo('<div class="partlist">');
-        $queryString = "SELECT parts.PartID, parts.Partname AS Name, colors.Colorname AS Color, inventory.Quantity AS Qty
-                        FROM inventory
-                        JOIN parts ON inventory.ItemID = parts.PartID
-                        JOIN colors ON inventory.colorID = colors.colorID
-                        WHERE inventory.SetID ='$setId'";
+        $queryString = "SELECT parts.PartID,
+                               parts.Partname AS Name,
+                               colors.Colorname AS Color,
+                               inventory.Quantity AS Qty
+                               FROM inventory
+                               JOIN parts ON inventory.ItemID = parts.PartID
+                               JOIN colors ON inventory.colorID = colors.colorID
+                               WHERE inventory.SetID ='$setId'";
 
         //Send Query
         $partContent = mysql_query($queryString);
         createPartListTable($partContent);
+        echo('<br>');
+
+        //Mini figures
+        $queryString = "SELECT minifigID as 'Figure ID',
+                               Minifigname as 'Figure Name'
+                               FROM minifigs
+                               JOIN inventory ON inventory.ItemID = minifigs.MinifigID
+                               WHERE inventory.SetID ='$setId'";
+        $minifigContent = mysql_query($queryString);
+        if(numOfResults($minifigContent) != 0)
+        {
+          createMiniFigTable($minifigContent);
+        }
         echo('</div>');
       }
     }
