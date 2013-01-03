@@ -67,13 +67,15 @@
       {
         echo("Year: <input type='text' size='20' name='searchYear' value='$searchYear'/>");
       }
-      else if($searchType == "partID" || $searchType == "partName")
+      else if(isset($searchType))
       {
-        echo("Year: <input type='text' size='20' name='searchYear' value='' disabled/>");
+        if($searchType == "partID" || $searchType == "partName")
+        {
+          echo("Year: <input type='text' size='20' name='searchYear' value='' disabled/>");
+        }
       }
       else
       {
-        echo("lal");
         echo("Year: <input type='text' size='20' name='searchYear' value=''/>");
       }
       echo("<br />");
