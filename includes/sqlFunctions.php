@@ -35,7 +35,7 @@ function CreateResultTable($queryResult, $typeOfSearch)
 			{
 				$searchType = "setID";
 			}
-			echo('<tr class="parts" onclick="location.href=\'./search.php?searchType='.$searchType.'&searchString='.$row[0].'&searchYear=\'">');
+			echo('<tr class="parts" onclick="location.href=\'./search.php?searchType='.$searchType.'&amp;searchString='.$row[0].'&amp;searchYear=\'">');
 			for($i=0; $i<mysql_num_fields($queryResult); $i++)
 			{
 				echo("<td>$row[$i]</td>");
@@ -60,7 +60,7 @@ function createPartListTable($queryResult)
 
 	while($row = mysql_fetch_row($queryResult))
 	{
-		echo('<tr class="parts" onclick="location.href=\'./search.php?searchType=partID&searchString='.$row[0].'&searchYear=\'">');
+		echo('<tr class="parts" onclick="location.href=\'./search.php?searchType=partID&amp;searchString='.$row[0].'&amp;searchYear=\'">');
 		for($i = 0; $i < mysql_num_fields($queryResult); $i++)
 		{
 			echo("<td>$row[$i]</td>");

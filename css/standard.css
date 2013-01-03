@@ -38,6 +38,7 @@ div
 }
 div.menu
 {
+	text-align: center;
 	position: fixed;
 	left: 19.95%;
 	top: 0%;
@@ -48,8 +49,7 @@ div.menu
 	background-size: 100% 100%;
 
 	width: 59.95%;
-	height: 8%;
-	min-height: 50px;
+	height: 55px;
 }
 div.menuItem
 {
@@ -151,6 +151,8 @@ table
 }
 .menuTable
 {
+	margin-left:auto;
+    margin-right:auto;
 	height: 40px;
 }
 

@@ -16,9 +16,7 @@
 	</div>
 
 	<div class="head">
-		<p>
 			<h2>Members</h2>
-		</p>
 	</div>
 
 	<div class="selected" id="selected">
@@ -51,7 +49,7 @@
 		<div id="download">
 			<br/>
 			<a href="downloadlink">
-			<img class="download" src="images/download.svg"><br/>
+			<img class="download" src="images/download.svg" alt=""><br/>
 			Download our source code!
 			</a>
 		</div>

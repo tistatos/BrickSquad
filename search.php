@@ -27,7 +27,7 @@
   </div>
 
 	<div class="head">
-		<p> <h1>Search</h1> </p>
+		<h1>Search</h1>
 	</div>
 
   <div class="search">
@@ -42,9 +42,12 @@
                      "partName" => "Part Name" );
       foreach ($types as $type => $name)
       {
-        if($searchType == $type)
+        if(isset($searchType))
         {
-          echo("<option value='$type' selected>$name</option>");
+          if($searchType == $type)
+          {
+            echo("<option value='$type' selected>$name</option>");
+          }
         }
         else
         {
@@ -93,7 +96,7 @@
   if(sizeof($_GET) !=0)
   {
     echo('<div class="head">');
-    echo('<p> <h1> Result </h1></p>');
+    echo('<h1> Result </h1>');
     echo('</div>');
     echo('<div class="selected">');
 
@@ -227,7 +230,7 @@
       {
         $setId = $row[0];
         echo('<div class="head">');
-        echo('<p> <h1> Parts </h1></p>');
+        echo('<h1> Parts </h1>');
         echo('</div>');
         echo('<div class="partlist">');
         $queryString = "SELECT parts.PartID,

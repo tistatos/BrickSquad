@@ -14,15 +14,13 @@
 </div>
 
 <div class="head">
-	<p> <h1>Home</h1> </p>
+	<h1>Home</h1>
 </div>
 <div class="selected" id="selected">
-	<p>
-		<h1 class="titleHeader">Set of the Day!</h1>
-	</p>
+	<h1 class="titleHeader">Set of the Day!</h1>
 	<!-- TEST CODE REMOVE WHEN WE GO LIVE! -->
 	(picture and table links to a searchquery for this specific set?)<br />
-	<img class='select' src=http://www.bricklink.com/SL/1712-1.jpg><br /><br />
+	<img class='select' src=http://www.bricklink.com/SL/1712-1.jpg alt=""><br /><br />
 	<table class="info">
 		<tr class="header">
 			<th>Set Id</th>

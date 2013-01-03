@@ -7,10 +7,10 @@
  */
 ?>
 
-<?php print("<?xml version = '1.0' encoding = 'iso-8859-1'?>\n"); ?>
-<!DOCTYPE html5>
+<!DOCTYPE html>
 <html>
 	<head>
+			<meta charset="UTF-8">
 			<title>Bricksquad - F&ouml;r oss som gillar Lego mer &auml;n stegu!</title>
 			<link rel="stylesheet" type="text/css" href="./css/standard.css" />
 			<script type="text/javascript" src="./js/script.js"></script>
