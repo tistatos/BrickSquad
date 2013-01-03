@@ -49,10 +49,8 @@
 <?php
 
   // TODO: how should we handle ID searches?
-  // TODO: if result of query is just one set/part - skip searchresult
-  // TODO: should we make a maximum amount of search results per page?
   // TODO: sorting with by clicking the row headers
-
+  //TODO : how to solve multiple category results?
   //Search result list
   if(sizeof($_GET) !=0)
   {
@@ -92,38 +90,49 @@
       break;
 
       case "setCat": //search for all sets in category
-        //TODO : how to solve multiple category results?
-
         //get the CatID to later find all sets with this CatID
         $categoryQuery = "SELECT CatID FROM categories WHERE Categoryname like'%$searchString%'";
 
         $catalogId = mysql_query($categoryQuery);
         $catalogIdRow = mysql_fetch_row($catalogId);
 
-        $queryString .= " WHERE sets.CatID ='" . $catalogIdRow[0] . "' ORDER BY Year";
+        $queryString .= " WHERE sets.CatID ='" . $catalogIdRow[0] . "'";
+        if($searchYear)
+        {
+          //search with year
+          $queryString .= " AND Year ='$searchYear'";
+        }
       break;
 
       case "partID":  //Search for pieces with ID
-        $queryString = "SELECT * FROM parts
-                              JOIN categories ON parts.CatID = categories.CatID
-                              WHERE PartID LIKE '$searchString%'";
+        $queryString = "SELECT PartId as 'Part ID',
+                               Partname as 'Part Name',
+                               categories.Categoryname as 'Category'
+                               FROM parts
+                               JOIN categories ON parts.CatID = categories.CatID
+                               WHERE PartID = '$searchString'";
       break;
 
       case "partName":   //Search for piece with name
-        $queryString = "SELECT * FROM parts
-                              JOIN categories ON parts.CatID = categories.CatID
-                              WHERE Partname like'%$searchString%'";
+                $queryString = "SELECT PartId as 'Part ID',
+                               Partname as 'Part Name',
+                               categories.Categoryname as 'Category'
+                               FROM parts
+                               JOIN categories ON parts.CatID = categories.CatID
+                               WHERE Partname like'%$searchString%'";
       break;
     }
-
     //Send query
     $contents = mysql_query($queryString);
     //we need this later in this scope
-    $row;
     if(numOfResults($contents) > 1)
     {
       //We have multiple results and create a table of results
       CreateResultTable($contents, $searchType);
+    }
+    else if(numOfResults($contents) == 0)
+    {
+      echo("<h1>No Results!</h1>");
     }
     else
     {
@@ -133,14 +142,21 @@
       if($searchType == "partID")
       {
         $partId = $row[0];
-        $category = $row[1];
-        $partName = $row[2];
+        $partName = $row[1];
+        $category = $row[2];
         //FIXME: prefix is incorrect - we need to get a color for the part
         $site = getPictureLink($partId, "P");
-        echo('<h1>$partName </h1> <br />');
-        echo('<img class="select" src=$site alt="No Image" /><br /> ');
-        echo('<p>Part ID: $setOrPartId </p>');
-        echo('<p>Category: $category </p>');
+        echo("<h1>$partName </h1> <br />");
+        if($site != "")
+        {
+          echo("<img class='select' src=$site alt='' /> <br />");
+        }
+        else
+        {
+          echo("<h1>No Image</h1>");
+        }
+        echo("<p>Part ID: $partId </p>");
+        echo("<p>Category: $category </p>");
       }
       else
       {

@@ -27,9 +27,15 @@ function CreateResultTable($queryResult, $typeOfSearch)
 
 		while($row = mysql_fetch_row($queryResult))
 		{
-			//FIXME: onclick on results on do setID search
-			//		 It should work for parts aswell
-			echo('<tr class="parts" onclick="location.href=\'./search.php?searchType='.$typeOfSearch.'&searchString='.$row[0].'&searchYear=\'">');
+			if($typeOfSearch == "partID" || $typeOfSearch == "partName")
+			{
+				$searchType = "partID";
+			}
+			else
+			{
+				$searchType = "setID";
+			}
+			echo('<tr class="parts" onclick="location.href=\'./search.php?searchType='.$searchType.'&searchString='.$row[0].'&searchYear=\'">');
 			for($i=0; $i<mysql_num_fields($queryResult); $i++)
 			{
 				echo("<td>$row[$i]</td>");
