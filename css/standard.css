@@ -4,14 +4,13 @@
  *	file: 	homestyle.css
  *	Desc:	stylesheet for the home page.
  */
-
 body
 {
 	margin: 4% 10%;
 	font-family: Verdana;
 	font-size: 15px;
 	cursor: default;
-	background-color: #E7E8FE;
+	background-color: #EBF0FF;
 	min-width: 600px;
 	color: #FF9C00;
 	color: #4A4A4A;
@@ -74,7 +73,7 @@ div.menuItem
 	text-align: center;
 	margin-top: 10px;
 	width: 75%;
-	height: 79%;
+	min-height: 79%;
 	border: 1px solid black;
 	margin-top: 0px;
 	overflow: auto;
@@ -97,7 +96,7 @@ div.menuItem
 	background-repeat: no-repeat;
 	width: 200px;
 	color: #FF9C00;
-	background-color: #E7E8FE;
+	background-color: #EBF0FF;
 	text-indent: 20px;
 	text-align: left;
 	margin-top: -15px;
@@ -272,6 +271,11 @@ p.partlist
 {
 	margin-left: auto;
 	margin-right: auto;
+}
+#text
+{
+	margin: 0px 35px;
+	text-align: left;
 }
 /**
  *		Images
