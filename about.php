@@ -39,12 +39,12 @@
 			</div>
 		</div>
 		<div id="text">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			This webpage is the result of the examinationproject in the course TNMK30 on Link&ouml;pings Universitet campus
+			 Norrk&ouml;ping. The webpage is created by group 18 ("Bricksquad") during a 5 week long process. It's created with
+			the help of the lego database from <a href="http://www.bricklink.com/">bricklink.com</a>. If you want to take 
+			a closer look at the source code we have provided a .zip wich contains all our source code. Do you have questions 
+			about the webpage, project or the course we would like to direct your attention towards the 
+			<a href="contact.php">contact</a> page.
 		</div>
 		<div id="download">
 			<br/>
