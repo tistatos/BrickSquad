@@ -48,10 +48,14 @@
           {
             echo("<option value='$type' selected>$name</option>");
           }
+          else
+          {
+            echo("<option value='$type'>$name</option>");
+          }
         }
         else
         {
-          echo("<option value='$type'>$name</option>");
+            echo("<option value='$type'>$name</option>");
         }
       }
       echo("</select> <br />");
@@ -82,6 +86,7 @@
         echo("Year: <input type='text' size='20' name='searchYear' value=''/>");
       }
       echo("<br />");
+      echo("<a id='result'></a>");
 ?>
       <input type=submit value="Submit" />
     </form>
@@ -89,14 +94,13 @@
 
 <?php
 
-  // TODO: how should we handle ID searches?
   // TODO: sorting with by clicking the row headers
   //TODO : how to solve multiple category results?
   //Search result list
   if(sizeof($_GET) !=0)
   {
     echo('<div class="head">');
-    echo('<h1> Result </h1>');
+    echo('<h1>Result</h1>');
     echo('</div>');
     echo('<div class="selected">');
 
@@ -170,6 +174,9 @@
     {
       //We have multiple results and create a table of results
       CreateResultTable($contents, $searchType);
+
+      //create paging
+      CreatePaging(numOfResults($contents));
     }
     else if(numOfResults($contents) == 0)
     {
@@ -185,19 +192,42 @@
         $partId = $row[0];
         $partName = $row[1];
         $category = $row[2];
-        //FIXME: prefix is incorrect - we need to get a color for the part
-        $site = getPictureLink($partId, "P");
+
+        $colors = GetPartColors($partId);
+        $color = 0;
+        if($colors != "")
+        {
+          $color = $colors[0];
+          $imgLink = getPictureLink($partId, "P/$color");
+        }
         echo("<h1>$partName </h1> <br />");
-        if($site != "")
+        if($imgLink != "")
         {
-          echo("<img class='select' src=$site alt='' /> <br />");
+          echo("<img class='select' src=$imgLink alt='' /> <br />");
         }
-        else
-        {
-          echo("<h1>No Image</h1>");
-        }
+
         echo("<p>Part ID: $partId </p>");
         echo("<p>Category: $category </p>");
+
+        //Get all colors the part exists in
+        echo("<p>Available Colors:</p>");
+        $colorNewRow = 0;
+        for($i = 0; $i < sizeof($colors); $i++)
+        {
+
+          $imgLink = getPictureLink($partId, "P/$colors[$i]");
+          if($imgLink != "")
+          {
+            echo("<img src=$imgLink alt='' />");
+
+            if(($colorNewRow % 4) == 3)
+            {
+              echo("<br />");
+            }
+            $colorNewRow++;
+          }
+
+        }
       }
       else
       {
@@ -206,14 +236,23 @@
         $setName = $row[2];
         $year = $row[3];
 
-        $site = getPictureLink($setId, "S");
+        $imgLink = getPictureLink($setId, "S");
+        $bigImgLink = "http://img.bricklink.com/SL/$setId.jpg";
+
         echo("<h1>$setName </h1>");
-        if($site != "")
+        if(@fclose(fopen($bigImgLink, "r")))
         {
-          echo("<img class='select' src=$site alt='' /> <br />");
+          //if we have large picture of set, use it
+          echo("<img class='select' src=$bigImgLink alt='' /> <br />");
+        }
+        else if($imgLink != "")
+        {
+          //no big image, rely on database to give us a small picture
+          echo("<img class='select' src=$imgLink alt='' /> <br />");
         }
         else
         {
+          //no result from datebase
           echo("<h1>No Image</h1>");
         }
         echo("<p>Set ID: $setId </p>");
@@ -221,7 +260,8 @@
         echo("<p>year: $year </p>");
       }
     }
-    echo('</div>');
+    echo('</div>'); //end of selected
+
 
     //Detailed partlist
     if($searchType == "setID")
@@ -263,31 +303,4 @@
     }
   }
   require("./templates/footer.php");
-
-  //Get Picture FIXME
-  /*
-  $miniFigIdQuery = mysql_query("SELECT MinifigID FROM minifigs where Minifigname = '". $partName ."'");
-
-  $minifigRow = mysql_fetch_row($miniFigIdQuery);
-
-  if($minifigRow != null)
-  {
-    echo($partName);
-    $imglink_minifig = "http://img.bricklink.com/M/ ". $minifigRow[0].".gif";
-    echo("<td><img src='$imglink_minifig' alt='gif-image' /></td>");
-  }
- echo("<table border=1>\n");
- echo("<th> MinifigID </th><th> Qty </th><th> SetID </th><th> Name</th><th> Image </th>");
- while($miniFigTableRow = mysql_fetch_row($table_query))
- {
-    echo("<tr>");
-    for($n=0; $n<mysql_num_fields($table_query); $n++)
-    {
-      echo("<td> $miniFigTableRow[$n] </td>");
-    }
-    $imglink_minifig = "http://img.bricklink.com/M/".$miniFigTableRow[0].".gif"  ;
-    echo("<td><img src='$imglink_minifig' alt='gif-image' /></td>");
-    echo("</tr>");
-  }
-*/
 ?>

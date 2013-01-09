@@ -42,7 +42,7 @@ div.menu
 	position: fixed;
 	left: 19.95%;
 	top: 0%;
-
+	z-index:2;
 	border: 1px solid black;
 
 	background-image:url('../images/menyBG.png');
@@ -74,10 +74,21 @@ div.menuItem
 	text-align: center;
 	margin-top: 10px;
 	width: 75%;
-	min-height: 79%;
+	height: 79%;
 	border: 1px solid black;
 	margin-top: 0px;
 	overflow: auto;
+}
+
+.outerSearchResult
+{
+	height: 935px;
+	overflow: hidden;
+}
+.innerSearchResult
+{
+	position: relative;
+	top: 0px;
 }
 
 .head
@@ -158,12 +169,16 @@ table
 
 .info
 {
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 0px;
+	width: 100%;
 }
 .partlist
 {
 	width: 90%;
+}
+td
+{
+	width: 20%;
 }
 tr.header
 {
@@ -175,12 +190,14 @@ tr.parts:nth-child(even)
 {
 	color: #D3D3D3;
 	background: #0E53A7;
+	height: 85px;
 }
 
 tr.parts:nth-child(odd)
 {
 	color: #D3D3D3;
 	background-color:  #6899D3;
+	height: 85px;
 }
 /**
  *		links

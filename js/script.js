@@ -64,16 +64,28 @@ function searchValidate()
 {
 	var form = document.getElementById("searchForm");
 	var searchString = form.searchString.value;
-
+	var searchType = form.searchType.value;
 	if(searchString == "")
 	{
 		alert("Please specify what you're searching for!");
 		return false;
 	}
-	else if(searchString.length < 2)
+	else if(searchString.length < 2 && searchType != "partID")
 	{
 		alert("Please make your search more specific!");
 		return false;
 	}
 	return true;
+}
+
+function scrollResult(pageNumber)
+{
+	var pixelmove = 0;
+	var resultHeight = 85;
+	var resultsPerPage = 11;
+
+	pixelmove = pageNumber * resultsPerPage * resultHeight * -1;
+
+	document.getElementById("searchResult").style.top = pixelmove+'px';
+	console.log(pixelmove);
 }
