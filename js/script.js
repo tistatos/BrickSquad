@@ -2,7 +2,7 @@
  *	Grupp 18 - 2012-12-06
  * 	Name:	Daniel Rönnkvist
  * 	file: 	script.js
- * 	Desc:	Generic javascripts for bricksquad
+ * 	Desc:	Generic javascripts for bricksquad website
  */
 
 /**
@@ -27,7 +27,7 @@ function dropDownChange()
 
 }
 /**
- * 	Validate contact form
+ * Validate contact form
  */
 function contactValidate()
 {
@@ -47,6 +47,7 @@ function contactValidate()
 		return false;
 	}
 
+	//Validate that user has written a proper email adress
 	var atpos=email.indexOf("@");
 	var dotpos=email.lastIndexOf(".");
 	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length)
@@ -67,25 +68,31 @@ function searchValidate()
 	var searchType = form.searchType.value;
 	if(searchString == "")
 	{
+		//No input from user
 		alert("Please specify what you're searching for!");
 		return false;
 	}
 	else if(searchString.length < 2 && searchType != "partID")
 	{
+		//user has written a string that is two characters or less
+		//to avoid the database to handle too much data, user must
+		//be more specific
 		alert("Please make your search more specific!");
 		return false;
 	}
 	return true;
 }
-
+/**
+ * paging and scrolling system for search result
+ */
 function scrollResult(pageNumber)
 {
 	var pixelmove = 0;
 	var resultHeight = 85;
 	var resultsPerPage = 11;
-
+	//Calculate how much the div must move to show the next 11 results
 	pixelmove = pageNumber * resultsPerPage * resultHeight * -1;
 
+	//Write it to the div
 	document.getElementById("searchResult").style.top = pixelmove+'px';
-	console.log(pixelmove);
 }

@@ -7,20 +7,24 @@
  *
  */
 
-$server = "";
+$server = "mysql.itn.liu.se";
+$login = "lego";
+$pass = "";
 
-if($DEBUG)
+//connect to server and select lego database;
+if(@mysql_connect($server, $login,$pass))
 {
-	$server = "tistatos.dyndns.org:2325";
+	//If we've made a connection
+	mysql_select_db("lego");
 }
 else
 {
-	$server = "mysql.itn.liu.se";
-}
-
-//connect to server and select lego database;
-$connection = mysql_connect($server, "lego","");
-if($connection)
-{
-	mysql_select_db("lego");
+	//Create a window showing that not having connection to sql would cause
+	//website not working
+	echo("<div class='errorWindow'>");
+	echo("<h1 class='titleHeader'>Error!</h1>");
+	echo("<p>There is no connection to the database! <br />");
+	echo("This website won't function properly");
+	echo("</p>");
+	echo("</div>");
 }

@@ -2,26 +2,19 @@
  * 		Grupp 18 - 2012-12-10
  * 	Name:	Daniel Rönnkvist
  *	file: 	homestyle.css
- *	Desc:	stylesheet for the home page.
+ *	Desc:	Stylesheet for the home page.
  */
+
 body
 {
 	margin: 4% 10%;
 	font-family: Verdana;
 	font-size: 15px;
 	cursor: default;
-	background-color: #EBF0FF;
+	background-color: #E7E8FE;
 	min-width: 600px;
 	color: #FF9C00;
 	color: #4A4A4A;
-}
-
-/**
- *		The color of marked objects
- */
-::selection
-{
-	background:#B5B5B5;
 }
 
 /**
@@ -50,6 +43,7 @@ div.menu
 	width: 59.95%;
 	height: 55px;
 }
+
 div.menuItem
 {
 	width:145px;
@@ -73,7 +67,7 @@ div.menuItem
 	text-align: center;
 	margin-top: 10px;
 	width: 75%;
-	min-height: 79%;
+	height: 79%;
 	border: 1px solid black;
 	margin-top: 0px;
 	overflow: auto;
@@ -89,21 +83,20 @@ div.menuItem
 	position: relative;
 	top: 0px;
 }
-
 .head
 {
 	background-image:url('../images/divhead.png');
 	background-repeat: no-repeat;
 	width: 200px;
 	color: #FF9C00;
-	background-color: #EBF0FF;
+	background-color: #E7E8FE;
 	text-indent: 20px;
 	text-align: left;
 	margin-top: -15px;
 	margin-left: 13%;
 	margin-bottom: -23px;
 }
-div.partlist
+.partlist
 {
 	border: 1px solid black;
 	width: 75%;
@@ -137,8 +130,16 @@ div.partlist
 	font-size: 23px;
 	overflow: hidden;
 }
-
-
+.errorWindow
+{
+	min-width: 0px;
+	width: 40%;
+	height: 170px;
+	border: 1px solid black;
+	position: fixed;
+	top: 35%;
+	left: 30%;
+}
 /**
  *		Table CSS
  */
@@ -147,17 +148,21 @@ td.menu, td.selected
 	font-size: 25px;
 	line-height: 160%;
 }
-td.selected
+.selected
 {
 	color: #4A4A4A;
 }
-td.menu:hover
+.menu:hover
 {
 	color: #4A4A4A;
 }
 table
 {
 	border-collapse:collapse;
+}
+.searchTable
+{
+	width: 460px;
 }
 .menuTable
 {
@@ -171,7 +176,7 @@ table
 	margin-left: 0px;
 	width: 100%;
 }
-.partlist
+table.partlist
 {
 	width: 90%;
 }
@@ -191,12 +196,19 @@ tr.parts:nth-child(even)
 	background: #0E53A7;
 	height: 85px;
 }
-
 tr.parts:nth-child(odd)
 {
 	color: #D3D3D3;
 	background-color:  #6899D3;
 	height: 85px;
+}
+tr.parts:nth-child(even):hover
+{
+	background-color: #1373E8;
+}
+tr.parts:nth-child(odd):hover
+{
+	background-color: #4A95F0;
 }
 /**
  *		links
@@ -209,28 +221,6 @@ a
 a:hover
 {
 	color:#4A4A4A;
-}
-
-/*
- *		Search field stuffs
- */
-
-/*
- *		spans!
- */
-span.left
-{
-	width: 400px;
-	margin-left: 0.5%;
-	text-align: right;
-	float: left;
-}
-span.right
-{
-	width: 400px;
-	margin-right: 54%;
-	text-align: right;
-	float: right;
 }
 
 /*
@@ -267,15 +257,17 @@ p
 {
 	text-align: center;
 }
-p.partlist
+
+.aboutText
 {
-	margin-left: auto;
-	margin-right: auto;
-}
-#text
-{
-	margin: 0px 35px;
 	text-align: left;
+	width: 470px;
+	min-width: 1px;
+}
+.dbInfo
+{
+	float:right;
+	min-width: 0px;
 }
 /**
  *		Images
@@ -313,39 +305,21 @@ h1.titleHeader
 /*
  *		Inputs
  */
-input.main-search
-{
-	width: 296px;
-	height: 29px;
-}
-input.main-searchfield
-{
-	margin-right: -8px;
-	height: 21px;
-	outline: none;
-}
 input
 {
 	border: none;
-}
-.submit
-{
-	width: 23px;
-	padding-top: 8px;
-	position: absolute;
-}
-.pil
-{
-	width: 15px;
 }
 textarea
 {
 	resize: none;
 }
 
-
+/*
+ *	About page
+ */
 #contactImg
 {
+	padding: 10px;
 	width: 808px;
 	height: 240px;
 }

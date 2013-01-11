@@ -3,7 +3,8 @@
  * 		Grupp 18 - 2012-12-10
  * 	Name:	Erik Larsson
  *	file: 	header.php
- *	Desc:	Template for website header
+ *	Desc:	Template for website header that includes
+ *			connecting to an mySQL-server.
  */
 ?>
 
@@ -15,9 +16,16 @@
 		<link rel="stylesheet" type="text/css" href="./css/standard.css" />
 		<script type="text/javascript" src="./js/script.js"></script>
 		<link rel="shortcut icon" href="./images/favicon.ico">
+
+		<?php
+			//Start connection to SQL-Servers
+			require("./config/sqlconfig.php");
+
+			//Includes function for handling SQL result layout
+			require("./includes/sqlFunctions.php");
+		?>
 	</head>
 	<body>
 	<?php
-		//Menu code
 		require("./templates/menu.php");
 	?>

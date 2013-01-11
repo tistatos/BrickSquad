@@ -9,15 +9,15 @@
 	require("./templates/header.php");
 ?>
 
-	<div class="title">
-		<h1 class="titleHeader">CONTACT</h1>
-		<h1 class="titleSub">Bricksquad</h1>
-		<p class='tagline'>F&ouml;r oss som gillar Lego mer &auml;n stegu!</p>
-	</div>
+<div class="title">
+	<h1 class="titleHeader">CONTACT</h1>
+	<h1 class="titleSub">Bricksquad</h1>
+	<p class='tagline'>F&ouml;r oss som gillar Lego mer &auml;n stegu!</p>
+</div>
 
-	<div class="selected" id="selected">
-		<?php require('templates/form.php') ?>
-	</div>
+<div class="selected" id="selected">
+	<?php require('templates/form.php') ?>
+</div>
 <?php
-require("./templates/footer.php");
+	require("./templates/footer.php");
 ?>
