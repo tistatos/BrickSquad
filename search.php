@@ -175,9 +175,30 @@ if(sizeof($_GET) != 0)
 
 		case "setCat": //search for all sets in category
 			//get the CatID to later find all sets with this CatID
-			$categoryQuery = "SELECT CatID FROM categories WHERE Categoryname like'%$searchString%'";
+
+			$categoryQuery = "SELECT CatID, Categoryname FROM categories WHERE Categoryname";
+			if(isset($_GET['specific']))
+			{
+				$categoryQuery.= " ='$searchString'";
+			}
+			else
+			{
+				$categoryQuery.= " LIKE'%$searchString%'";
+			}
 
 			$catalogId = mysql_query($categoryQuery);
+			if(numOfResults($catalogId) != 1)
+			{
+				echo("<p>Please Pick what Category you want: </p>");
+				echo("<ul style='list-style-type:none'>");
+				//result gave more category results
+				while($row = mysql_fetch_row($catalogId))
+				{
+					echo("<li><a href='./search.php?searchType=setCat&amp;searchString=$row[1]&amp;searchYear=&amp;specific=true'>$row[1]</a>");
+				}
+				echo("</ul>");
+				return;
+			}
 			$catalogIdRow = mysql_fetch_row($catalogId);
 
 			$queryString .= " WHERE sets.CatID ='" . $catalogIdRow[0] . "'";

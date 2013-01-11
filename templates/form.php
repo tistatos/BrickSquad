@@ -22,7 +22,6 @@ if(isset($_POST['contact_name']) && isset($_POST['contact_email']) && isset($_PO
 		{
 			//Send email to daniel
 			$to = 'danro71i@student.liu.se';
-			$to = 'tistatos@gmail.com';
 			$subject = 'Kontaktformulär Bricksquad';
 			$body = 'Namn: ' . $contact_name . "\n" . "\n" . $contact_text;
 			$headers = 'From: ' . $contact_email;
