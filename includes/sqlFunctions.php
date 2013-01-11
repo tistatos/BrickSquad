@@ -52,12 +52,15 @@ function CreateResultTable($queryResult, $typeOfSearch)
 			if($typeOfSearch == "partID" || $typeOfSearch == "partName")
 			{
 				$searchType = "partID";
+				$specific = "&amp;specific=true";
 			}
 			else
 			{
 				$searchType = "setID";
+				$specific = "";
 			}
-			echo('<tr class="parts" onclick="location.href=\'./search.php?searchType='.$searchType.'&amp;searchString='.$row[0].'&amp;searchYear=\'">');
+
+			echo('<tr class="parts" onclick="location.href=\'./search.php?searchType='.$searchType.'&amp;searchString='.$row[0].'&amp;searchYear='.$specific.'\'">');
 
 			if(strlen ($row[2]) > 40)
 			{
@@ -80,13 +83,21 @@ function CreateResultTable($queryResult, $typeOfSearch)
 			{
 				//Get a small picture of one of the parts
 				$colors = GetPartColors($row[0]);
-        		$color = 0;
-        		//TODO: use value and keys instead to have names of colors aswell
-        		if($colors != "")
-        		{
-          			$color = $colors[0];
-          			$imgLink = getPictureLink($row[0], "P/$color");
-        		}
+				$color = 0;
+
+				if($colors == "")
+				{
+					$imgLink = "";
+				}
+				else
+				{
+					foreach($colors as $key => $value)
+					{
+						$color = $value;
+						$imgLink = getPictureLink($row[0], "P/$color");
+						break;
+					}
+				}
 			}
 			if($imgLink != "")
 			{
@@ -130,7 +141,7 @@ function createPartListTable($queryResult)
 	while($row = mysql_fetch_row($queryResult))
 	{
 		//Print each row
-		echo('<tr class="parts" onclick="location.href=\'./search.php?searchType=partID&amp;searchString='.$row[0].'&amp;searchYear=\'">');
+		echo('<tr class="parts" onclick="location.href=\'./search.php?searchType=partID&amp;searchString='.$row[0].'&amp;specific=true\'">');
 		for($i = 0; $i < mysql_num_fields($queryResult); $i++)
 		{
 			echo("<td>$row[$i]</td>");

@@ -177,6 +177,8 @@ if(sizeof($_GET) != 0)
 			//get the CatID to later find all sets with this CatID
 
 			$categoryQuery = "SELECT CatID, Categoryname FROM categories WHERE Categoryname";
+
+			//If we've picked what category we want in list we want to do a specific search
 			if(isset($_GET['specific']))
 			{
 				$categoryQuery.= " ='$searchString'";
@@ -216,7 +218,15 @@ if(sizeof($_GET) != 0)
 							categories.Categoryname as 'Category'
 							FROM parts
 							JOIN categories ON parts.CatID = categories.CatID
-							WHERE PartID = '$searchString'";
+							WHERE PartID";
+			if(isset($_GET['specific']))
+			{
+				$queryString .= " ='$searchString'";
+			}
+			else
+			{
+				$queryString .= " LIKE'%$searchString%'";
+			}
 		break;
 
 		case "partName":   //Search for piece with name
