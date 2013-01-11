@@ -72,7 +72,7 @@ function searchValidate()
 		alert("Please specify what you're searching for!");
 		return false;
 	}
-	else if(searchString.length < 2 && searchType != "partID")
+	else if(searchString.length < 2)
 	{
 		//user has written a string that is two characters or less
 		//to avoid the database to handle too much data, user must
