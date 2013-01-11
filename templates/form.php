@@ -21,7 +21,7 @@ if(isset($_POST['contact_name']) && isset($_POST['contact_email']) && isset($_PO
 		if (filter_var($contact_email, FILTER_VALIDATE_EMAIL))
 		{
 			//Send email to daniel
-			$to = 'danro71i@student.liu.se';
+			$to = 'danro716@student.liu.se';
 			$subject = 'Kontaktformulär Bricksquad';
 			$body = 'Namn: ' . $contact_name . "\n" . "\n" . $contact_text;
 			$headers = 'From: ' . $contact_email;
