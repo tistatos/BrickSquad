@@ -5,7 +5,7 @@ Gruppens medlemmar är:
 * Daniel Rönnkvist
 * Erik Larsson
 * Erik Olsson
-* Pelle Sernander
+* Pelle Serander
 
 
 Använd denna kodsnippet i toppen av varje fil!
